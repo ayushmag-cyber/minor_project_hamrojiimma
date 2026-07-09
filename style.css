@@ -467,6 +467,8 @@ section{
     padding: 35px;
     border-radius: 20px;
     box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    animation: floatBox 4s ease-in-out infinite;
+    transition: 0.3s ease;
 }
 
 .wrapper-login h2,
@@ -474,6 +476,37 @@ section{
     text-align: center;
     color: #0c3253;
     margin-bottom: 30px;
+}
+.wrapper-login:hover,
+.wrapper-contact:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+@keyframes floatBox {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.wrapper-login,
+.wrapper-contact{
+    animation: fadeIn 1s ease, floatBox 4s ease-in-out 1s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .input-box{
@@ -696,8 +729,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 120px;
-    padding-bottom: 80px;
+    padding: 0;
 }
 
 .wrapper-contact textarea{
