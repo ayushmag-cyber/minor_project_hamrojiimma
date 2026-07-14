@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HamroJiimma</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+
+<body>
+<div class="main-wrapper">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <button id="theme-toggle" class="theme-toggle">
+            <i class='bx bx-moon'></i>
+        </button>
+
+        <a href="index.html">
+            <img src="logo1.png" alt="HamroJiimma Services" width="150 px" height="100 px">
+        </a>
+
+        <ul class="nav-link">
+    <li>
+        <a href="index.html" class="home-btn">
+            <i class='bx bx-home'></i> Home
+        </a>
+    </li>
+
+    <li>
+        <a href="about.html" class="about-btn">
+            <i class='bx bx-info-circle'></i> About Us
+        </a>
+    </li>
+
+    <li>
+        <a href="services.html" class="services-btn">
+            <i class='bx bx-briefcase-alt'></i> Services
+        </a>
+    </li>
+
+    <li>
+        <a href="review.html" class="review-btn">
+            <i class='bx bx-star'></i> Review
+        </a>
+    </li>
+
+    <li>
+        <a href="login.html" class="login-btn">
+            <i class='bx bx-user'></i> Login
+        </a>
+    </li>
+
+    <li>
+        <a href="contact.html" class="contact-btn">
+            <i class='bx bx-phone'></i> Contact
+        </a>
+    </li>
+</ul>
+
+        <div class="nav-icons">
+            <div class="header-icon">
+                <i class='bx bx-search' id="search-icon"></i>
+
+                <div class="search-box">
+                    <input type="search" placeholder="Search services...">
+                </div>
+            </div>
+        </div>
+
+        <i class="bx bx-menu menu-btn"></i>
+
+    </nav>
+
+    <!-- Header -->
+    <header id="header">
+
+        <div class="header-content-container">
+
+            <div class="header-text" style="text-align:center">
+                <h1>Trusted Care for Every Nepalese Family</h1>
+                 <div class="line"></div>
+                <p class="author">Connecting families with verified caregivers for elder care, child care, motherhood support, and home monitoring.</p>
+                <h3>Safe • Verified • Affordable • Professional</h3>
+                <a href="services.html" class="btn">Book a Service</a>
+
+                <a href="about.html" class="btn btn-outline">Learn More</a>
+
+            </div>
+
+            <div class="header-image-box">
+                <img src="kk.png" alt="HamroJiimma Services">
+            </div>
+
+        </div>
+
+    </header>
+    <section class="stats">
+
+            <div class="stat">
+            <i class='bx bxs-user-check'></i>
+            <h2>500+</h2>            
+            <span>Verified Helpers</span>
+        </div>
+
+            <div class="stat">
+            <i class='bx bxs-badge-check'></i>
+            <h2>100%</h2>            
+            <span>Identity Verified</span>
+        </div>
+            <div class="stat">
+            <i class='bx bxs-phone-call'></i>
+            <h2>24/7</h2>            
+            <span>Customer Support</span>
+        </div>
+
+            <div class="stat">
+            <i class='bx bxs-star'></i>
+            <h2>4.9★</h2>
+            <span>Customer Rating</span>
+        </div>
+    </section>
+
+       <!-- Main Services -->
+    <section class="collections" id="collections">
+
+        <div class="title">
+            <h1>Our Main Services</h1>
+            <div class="line"></div>
+        </div>
+
+        <div class="collection-container">
+
+            <div class="box">
+
+                <img src="images/e.png" alt="Elder Care">
+
+                <h4>Elder Care</h4>
+
+                <p>
+                    Daily assistance, companionship, and routine support for elderly family members.
+                </p>
+
+                <div class="content">
+                    <span>Trusted Support</span>
+                    <a href="services.html" class="btn">View More</a>
+                </div>
+
+            </div>
+
+            <div class="box">
+
+                <img src="c.png" alt="Child Care">
+
+                <h4>Child Care</h4>
+
+                <p>
+                    Babysitting, homework guidance, and caring supervision for children.
+                </p>
+
+                <div class="content">
+                    <span>Safe & Reliable</span>
+                    <a href="services.html" class="btn">View More</a>
+                </div>
+
+            </div>
+            <div class="box">
+
+                <img src="motherhood.jpg" alt="Motherhood Care">
+
+                <h2>Motherhood Care</h2>
+                <p>
+                    Support for expecting and new mothers through compassionate and professional care.
+                </p>
+                             <div class="content">
+                        <span>Professional Support</span> 
+                    <a href="services.html" class="btn">Explore</a>
+                </div>
+
+            </div>
+
+            </div>
+
+    </section>
+
+               
+               <div class="services-left">
+
+        <h1>Why Choose Us?</h1>
+
+        <div class="line"></div>
+
+        <p>
+            HamroJiimma is committed to providing trusted and reliable care
+            services for every household. We connect families with verified,
+            experienced, and compassionate service providers.
+        </p>
+
+        <p>
+            Our platform focuses on safety, affordability, convenience, and
+            quality support. Whether you need childcare, elder care, or home
+            assistance, we are here to make your daily life easier.
+        </p>
+
+        <ul class="why-list">
+            <li>✔ Verified Service Providers</li>
+            <li>✔ Affordable Pricing</li>
+            <li>✔ Safe & Reliable Services</li>
+            <li>✔ Easy Online Booking</li>
+            <li>✔ Customer Support</li>
+        </ul>
+
+        <a href="contact.html" class="btn">Contact Us</a>
+
+    </div>
+
+    <!--  Reviews -->
+    <section class="reviews" id="reviews">
+
+        <div class="title">
+            <h1>What Our Users Say</h1>
+            <div class="line"></div>
+        </div>
+
+        <div class="reviews-container">
+
+            <div class="box">
+
+                <img src="images/customer1.jpeg" alt="Customer">
+
+                <h1>Aashrita</h1>
+
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+
+                <p>
+                    The platform helped us find a caring helper for my grandmother.
+                    The experience was smooth and trustworthy.
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <img src="images/customer2.jpg" alt="Customer">
+
+                <h1>Pramisha</h1>
+
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+
+                <p>
+                    Very useful for finding caretakers for child care services.
+                    The interface is simple and easy to use.
+                </p>
+
+            </div>
+
+            <div class="box">
+
+                <img src="images/customer4.jpeg" alt="Customer">
+
+                <h1>Aarogya</h1>
+
+                <div class="stars">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                </div>
+
+                <p>
+                    HamroJiimma provides reliable household support services.
+                    It feels safe and professional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+   
+    <section class="cta"> 
+        <h1>Need Trusted Care Today?</h1>
+           <p>
+               Book verified helpers and experience reliable household care with HamroJiimma.
+           </p> 
+        <a href="services.html" class="btn">
+                Get Started 
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer" id="contact">
+
+        <div class="footer-box">
+
+            <h2>HamroJiimma</h2>
+
+            <div class="social">
+
+                <a href="https://www.facebook.com" target="_blank">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+
+                <a href="https://www.instagram.com" target="_blank">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+
+                <a href="https://www.tiktok.com" target="_blank">
+                    <i class='bx bxl-tiktok'></i>
+                </a>
+
+            </div>
+
+        </div>
+
+         <div class="footer-box">
+
+            <h2>Services</h2>
+
+            <li><a href="services.html">Elder Care</a></li>
+            <li><a href="service.html">Child Care</a></li>
+            <li><a href="service.html">Motherhood Care</a></li>
+            <li><a href="service.html">House Monitoring</a></li>
+            <li><a href="service.html">Event Assistance</a></li>
+        </div>
+
+        <div class="footer-box">
+
+            <h2>Support</h2>
+
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Help & Support</a></li>
+            <li><a href="contact.html">Book a Service</a></li>
+            <li><a href="contact.html">About HamroJiimma</a></li>
+
+        </div>
+
+           <div class="footer-box">
+
+    <h2>Contact Us</h2>
+
+    <ul>
+
+        <li>
+            <i class='bx bx-envelope'></i>
+            <a href="mailto:hamrojiimma@gmail.com">
+                hamrojiimma@gmail.com
+            </a>
+        </li>
+
+        <li>
+            <i class='bx bx-phone'></i>
+            <a href="tel:+9779865374519">
+                +977 9865374519
+            </a>
+        </li>
+
+        <li>
+            <i class='bx bx-map'></i>
+            Kathmandu, Nepal
+        </li>
+
+        <li>
+            <i class='bx bx-message-square-detail'></i>
+            <a href="contact.html">
+                Contact Form
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+    </section>
+
+    <!-- Footer Bottom -->
+    <footer style="background-color: rgb(20, 67, 115);">
+
+        <p>
+            &copy; 2026 HamroJiimma. All rights reserved.
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
