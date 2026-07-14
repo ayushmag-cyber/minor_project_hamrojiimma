@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HamroJiimma - Services</title>
+    <title>HamroJiimma - About Us</title>
 
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 <script src="app.js" defer></script>
 
 <!-- Boxicons -->
@@ -27,7 +27,7 @@
         </button>
 
         <a href="index.html">
-            <img src="logo1.png" alt="HamroJiimma Services" width="150 px" height="100 px">
+            <img src="logo1.png" alt="HamroJiimma Services" width="150" height="100">
         </a>
 
         <ul class="nav-link">
@@ -86,107 +86,109 @@
 
     </nav>
 
-    <!-- Services Section -->
-<section class="services-page">
+    <!-- Booking Section -->
 
-    <div class="services-right">
+<section class="booking-section">
 
-        <h1>Our Services</h1>
+    <div class="booking-container">
 
-        <div class="line"></div>
-
-        <div class="service-grid">
-
-            <!-- Elder Care -->
-            <div class="box">
-
-                <img src="elder.jpeg" alt="Elder Care">
-
-                <h2>Elder Care</h2>
-
-                <p>
-                    Professional assistance and companionship for elderly family members.
-                </p>
-
-                <div class="content">
-                    <span>Trusted Care</span>
-                    <a href="booking.html" class="btn">Book Now</a>         
-                       </div>
-
-            </div>
-
-            <!-- Child Care -->
-            <div class="box">
-
-                <img src="child.png" alt="Child Care">
-
-                <h2>Child Care</h2>
-
-                <p>
-                    Safe babysitting and supervision for children.
-                </p>
-
-                <div class="content">
-                    <span>Safe Support</span>
-                    <a href="booking.html" class="btn">Book Now</a>
-                </div>
-
-            </div>
-
-            <!-- Motherhood Care -->
-            <div class="box">
-
-                <img src="mother.png" alt="Motherhood Care">
-
-                <h2>Motherhood Care</h2>
-
-                <p>
-                    Caring support and guidance for expectant mothers.
-                </p>
-
-                <div class="content">
-                    <span>Special Care</span>
-                    <a href="booking.html" class="btn">Book Now</a>
-                </div>
-
-            </div>
-
-            <!-- Event Assistance -->
-            <div class="box">
-
-                <img src="event.png" alt="Event Assistance">
-
-                <h2>Event Assistance</h2>
-
-                <p>
-                    Helping hands for family events and celebrations.
-                </p>
-
-                <div class="content">
-                    <span>Event Help</span>
-                   <a href="booking.html" class="btn">Book Now</a>
-                </div>
-
-            </div>
-
-            <div class="box">
-
-                <img src="homemonitoring.png" alt="House Monitoring">
-
-                <h2>House Monitoring</h2>
-
-                <p>
-                    Home observation services while you are away.
-                </p>
-
-                <div class="content">
-                    <span>Home Safety</span>
-                    <a href="booking.html" class="btn">Book Now</a>
-                </div>
-
-            </div>
-
+        <div class="booking-header">
+            <h1>Book a Service</h1>
+            <p>Fill in the details below to request trusted services from HamroJiimma.</p>
         </div>
+
+        <form action="#" method="POST" class="booking-form">
+
+
+            <div class="input-box">
+                <label>Full Name</label>
+                <input type="text" 
+                       name="full_name" 
+                       placeholder="Enter your full name"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <label>Email Address</label>
+                <input type="email" 
+                       name="email" 
+                       placeholder="Enter your email"
+                       required>
+            </div>
+
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="text" 
+                       name="phone" 
+                       placeholder="Enter your phone number"
+                       required>
+            </div>
+
+            <div class="input-box">
+
+                <label>Select Service</label>
+
+                <select name="service" required>
+
+                    <option value="">Choose Service</option>
+                    <option value="Child Care">Child Care</option>
+                    <option value="Elder Care">Elder Care</option>
+                    <option value="Motherhood Care">Motherhood Care</option>
+                    <option value="House Monitoring">House Monitoring</option>
+                    <option value="Event Assistance">Event Assistance</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-row">
+
+                <div class="input-box">
+
+                    <label>Booking Date</label>
+
+                    <input type="date" 
+                           name="booking_date"
+                           required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <label>Booking Time</label>
+
+                    <input type="time"
+                           name="booking_time"
+                           required>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label>Service Address</label>
+
+                <textarea name="address"
+                          placeholder="Enter your service location"
+                          rows="4"
+                          required></textarea>
+
+            </div>
+            <div class="input-box">
+
+                <label>Additional Details</label>
+
+                <textarea name="message"
+                          placeholder="Any special requirements..."
+                          rows="4"></textarea>
+
+            </div>
+
+            <button type="submit" class="booking-btn">Book Service </button>
+
+        </form>
 
     </div>
 
@@ -238,12 +240,12 @@
 
             <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Help & Support</a></li>
-            <li><a href="contact.html">Book a Service</a></li>
+            <li><a href="booking.html">Book a Service</a></li>
             <li><a href="contact.html">About HamroJiimma</a></li>
 
         </div>
 
-           <div class="footer-box">
+        <div class="footer-box">
 
     <h2>Contact Us</h2>
 
