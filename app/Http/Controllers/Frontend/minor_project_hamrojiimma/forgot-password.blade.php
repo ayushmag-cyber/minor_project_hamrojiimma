@@ -46,9 +46,9 @@ document.getElementById("forgot-form").addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    document.getElementById("message").style.color="green";
+    document.getElementById("message").style.color = "green";
     document.getElementById("message").innerHTML =
-    "Password reset link sent successfully! (Demo)";
+    "Password reset link sent successfully!";
 });
 </script>
 

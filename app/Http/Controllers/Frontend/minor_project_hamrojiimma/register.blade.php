@@ -20,7 +20,8 @@
 
     <h2>Create Account</h2>
 
-    <form id="register-form">
+    <form action="/register" method="POST">
+    @csrf
 
         <!-- Full Name -->
         <div class="input-box">
@@ -28,7 +29,13 @@
                 <i class='bx bx-user'></i>
             </span>
 
-            <input type="text" placeholder="Full Name" required>
+            <input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" required>
+
+<input type="password" name="password" placeholder="Create Password" required>
         </div>
 
         <!-- Email -->
