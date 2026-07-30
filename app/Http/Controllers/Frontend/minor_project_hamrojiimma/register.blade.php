@@ -20,7 +20,7 @@
 
     <h2>Create Account</h2>
 
-    <form action="/register" method="POST">
+    <form id="register-form" action="/register" method="POST">
     @csrf
 
         <!-- Full Name -->
@@ -28,14 +28,7 @@
             <span class="icon">
                 <i class='bx bx-user'></i>
             </span>
-
             <input type="text" name="name" placeholder="Full Name" required>
-
-<input type="email" name="email" placeholder="Email Address" required>
-
-<input type="tel" name="phone" placeholder="Phone Number" required>
-
-<input type="password" name="password" placeholder="Create Password" required>
         </div>
 
         <!-- Email -->
@@ -43,8 +36,7 @@
             <span class="icon">
                 <i class='bx bx-envelope'></i>
             </span>
-
-            <input type="email" placeholder="Email Address" required>
+            <input type="email" name="email" placeholder="Email Address" required>
         </div>
 
         <!-- Phone -->
@@ -52,8 +44,7 @@
             <span class="icon">
                 <i class='bx bx-phone'></i>
             </span>
-
-            <input type="tel" placeholder="Phone Number" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
         </div>
 
         <!-- Password -->
@@ -61,8 +52,7 @@
             <span class="icon">
                 <i class='bx bx-lock'></i>
             </span>
-
-            <input type="password" placeholder="Create Password" required>
+            <input type="password" name="password" placeholder="Create Password" required>
         </div>
 
         <!-- Confirm Password -->
@@ -70,8 +60,7 @@
             <span class="icon">
                 <i class='bx bx-lock-alt'></i>
             </span>
-
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
         </div>
 
         <!-- Terms -->
@@ -95,7 +84,7 @@
         <div class="register-link">
             <p>
                 Already have an account?
-                <a href="login.html">Login</a>
+                <a href="/login">Login</a>
             </p>
         </div>
 
