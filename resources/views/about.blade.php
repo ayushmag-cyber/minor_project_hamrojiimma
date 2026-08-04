@@ -100,74 +100,247 @@
 
     <!-- ABOUT SECTION -->
 
-<section class="main-about">
 
-    <div class="left-side">
+<section class="about-section">
 
-        <div class="subtitle">About HamroJiimma</div>
-        <div class="line"></div>
-        <h1>
-            Caring for Every Home,
-            <br>
-            One Service at a Time.
-        </h1>
+    <div class="about-container">
 
-        <p>
-            HamroJiimma is a trusted digital platform designed to connect
-            Nepalese families with verified caregivers and household service
-            providers. We make it easy to book reliable assistance for
-            childcare, elder care, home monitoring and event support.
-        </p>
+        <!-- LEFT CONTENT -->
 
-        <p>
-            Our mission is to simplify everyday life through safe,
-            affordable and professional home-care services while building
-            trust within every community.
-        </p>
+        <div class="about-content">
 
-        <div class="about-buttons">
+            <span class="about-tag">
+                ABOUT US
+            </span>
 
-            <a href="{{ url('/services') }}" class="btn">
-                Explore Services
-            </a>
+            <h1>
+                About <span>HamroJiimma</span>
+            </h1>
 
-            <a href="{{ url('/contact') }}" class="btn btn-outline">
-                    Contact Us
-            </a>
+            <div class="about-subtitle">
+
+                <div class="line"></div>
+
+                <span class="heart">❤</span>
+
+                <p>Care You Can Trust, Support You Deserve</p>
+
+                <div class="line"></div>
+
+            </div>
+
+            <p>
+                HamroJiimma is a care-focused digital platform created to
+                support Nepalese households through trusted and reliable
+                services. Our goal is to make daily life easier by
+                connecting families with verified helpers and skilled
+                service providers.
+            </p>
+
+            <p>
+                In today's busy lifestyle, many families struggle to
+                manage household responsibilities, elder care, child
+                supervision and other personal support services.
+                HamroJiimma provides a safe and organized solution where
+                users can easily find dependable assistance according to
+                their needs.
+            </p>
+
+            <p>
+                We focus not only on service booking but also on building
+                trust, long-term support and care within the community.
+            </p>
+
+            <!-- FEATURES -->
+
+            <div class="feature-wrapper">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class='bx bx-check-shield'></i>
+                    </div>
+
+                    <div>
+
+                        <h3>Trusted & Verified</h3>
+
+                        <p>
+                            All service providers are background-checked
+                            and verified for your safety.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class='bx bx-group'></i>
+                    </div>
+
+                    <div>
+
+                        <h3>We Care for You</h3>
+
+                        <p>
+                            Your comfort, safety and satisfaction are
+                            always our top priority.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="about-stats">
-
-            <div class="stat">
-                <h2>500+</h2>
-                <span>Happy Families</span>
-            </div>
-
-            <div class="stat">
-                <h2>100+</h2>
-                <span>Verified Helpers</span>
-            </div>
-
-            <div class="stat">
-                <h2>24/7</h2>
-                <span>Support</span>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="right-side">
+        <!-- RIGHT SIDE -->
 
         <div class="about-image">
-            <img src="{{ asset('about.png') }}" alt="HamroJiimma">
+
+            <img src="{{ asset('about.png') }}" alt="About HamroJiimma">
+
+            <div class="mission-card">
+
+                <div class="mission-icon">
+
+                    <i class='bx bx-home-heart'></i>
+
+                </div>
+
+                <div>
+
+                    <h2>Our Mission</h2>
+
+                    <div class="mission-line"></div>
+
+                    <p>
+                        To connect every home with trusted care and
+                        support services.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
 </section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-section">
+
+    <h2>Why Families Choose HamroJiimma?</h2>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+
+            <i class='bx bxs-check-shield'></i>
+
+            <h3>Verified Providers</h3>
+
+            <p>
+                All helpers are verified and trusted.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bx-heart'></i>
+
+            <h3>Safe & Reliable</h3>
+
+            <p>
+                Your safety and comfort are our top priority.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bx-wallet'></i>
+
+            <h3>Affordable Services</h3>
+
+            <p>
+                Quality care at reasonable prices.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bx-time'></i>
+
+            <h3>24/7 Support</h3>
+
+            <p>
+                We are always here whenever you need us.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bxs-like'></i>
+
+            <h3>Easy Booking</h3>
+
+            <p>
+                Book services online in just a few clicks.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bxs-group'></i>
+
+            <h3>Happy Families</h3>
+
+            <p>
+                Hundreds of families trust and recommend us.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+  <section class="stats">
+
+            <div class="stat">
+            <i class='bx bxs-user-check'></i>
+            <h2>500+</h2>            
+            <span>Verified Helpers</span>
+        </div>
+
+            <div class="stat">
+            <i class='bx bxs-badge-check'></i>
+            <h2>100%</h2>            
+            <span>Identity Verified</span>
+        </div>
+            <div class="stat">
+            <i class='bx bxs-phone-call'></i>
+            <h2>24/7</h2>            
+            <span>Customer Support</span>
+        </div>
+
+            <div class="stat">
+            <i class='bx bxs-star'></i>
+            <h2>4.9★</h2>
+            <span>Customer Rating</span>
+        </div>
+    </section>
 
     <!-- Footer -->
     <section class="footer" id="contact">

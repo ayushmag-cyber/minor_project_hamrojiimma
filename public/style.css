@@ -1,6 +1,4 @@
-/* ==========================================
-   GLOBAL STYLES
-========================================== */
+/* GLOBAL STYLES */
 
 *{
     margin: 0;
@@ -29,9 +27,7 @@ ul{
     list-style: none;
 }
 
-/* ==========================================
-   NAVBAR
-========================================== */
+/* NAVBAR */
 
 .navbar{
     position: fixed;
@@ -574,7 +570,7 @@ body.dark-mode .about-stats .stat h2,
 }
 
 .why-card{
-    background:#f8fbff;
+    background:#0e406c;
     padding:25px;
     border-radius:15px;
     text-align:center;
@@ -593,12 +589,12 @@ body.dark-mode .about-stats .stat h2,
 }
 
 .why-card h3{
-    color:#0c3253;
+    color:goldenrod;
     margin-bottom:10px;
 }
 
 .why-card p{
-    color:#666;
+    color:white;
     line-height:1.6;
 }
 
@@ -1073,48 +1069,253 @@ footer{
 .footer-box ul li a:hover{
     color: white;
 }
-/* =========================
-   ABOUT SECTION
-========================= */
+/*==========================
+        ABOUT PAGE
+==========================*/
 
-.about{
-    width: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    padding: 80px 0;
+.about-section{
+    padding:140px 8% 80px;
+    background:linear-gradient(to right,#f7f9ff,#ffffff);
 }
 
-.about-img{
-    flex: 1;
+.about-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:70px;
 }
 
-.about-img img{
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+/* LEFT */
+
+.about-content{
+    width:100%;
 }
 
-.about-text{
-    flex: 1;
+.about-tag{
+    display:inline-block;
+    padding:10px 20px;
+    background:#dfe8ff;
+    color:#0c3253;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:20px;
 }
 
-.about-text h1{
-    font-size: 2.8rem;
-    color: #0c3253;
-    margin-bottom: 15px;
+.about-content h1{
+    font-size:4rem;
+    color:#0c3253;
+    margin-bottom:25px;
+    line-height:1.1;
 }
 
-.about-text p{
-    color: #555;
-    margin-bottom: 20px;
-    line-height: 1.8;
+.about-content h1 span{
+    color:#0c3253;
 }
-/* =========================
-   REVIEW SECTION
-========================= */
+
+.about-subtitle{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.line{
+    width:60px;
+    height:2px;
+    background:goldenrod;
+}
+
+.heart{
+    color:goldenrod;
+    font-size:18px;
+}
+
+.about-subtitle p{
+    margin:0;
+    font-size:20px;
+    color:#444;
+}
+
+.about-content p{
+    color:#555;
+    line-height:1.9;
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+/* FEATURES */
+
+.feature-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:40px;
+}
+
+.feature-box{
+    display:flex;
+    gap:18px;
+}
+
+.feature-icon{
+    width:65px;
+    height:65px;
+    background:#edf3ff;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.feature-icon i{
+    font-size:32px;
+    color:#0c3253;
+}
+
+.feature-box h3{
+    color:#0c3253;
+    margin-bottom:8px;
+    font-size:24px;
+}
+
+.feature-box p{
+    margin:0;
+    color:#666;
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* RIGHT */
+
+.about-image{
+    position:relative;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:30px;
+    display:block;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+/* MISSION CARD */
+
+.mission-card{
+    position:absolute;
+    left:25px;
+    bottom:25px;
+    width:320px;
+    background:#fff;
+    border-radius:25px;
+    padding:25px;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.mission-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#0c3253;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.mission-icon i{
+    color:#fff;
+    font-size:34px;
+}
+
+.mission-card h2{
+    color:#0c3253;
+    margin-bottom:10px;
+}
+
+.mission-line{
+    width:60px;
+    height:3px;
+    background:goldenrod;
+    margin-bottom:15px;
+}
+
+.mission-card p{
+    color:#555;
+    line-height:1.7;
+    margin:0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.about-container{
+    grid-template-columns:1fr;
+}
+
+.about-content{
+    text-align:center;
+}
+
+.about-subtitle{
+    justify-content:center;
+}
+
+.feature-wrapper{
+    grid-template-columns:1fr;
+}
+
+.mission-card{
+    position:relative;
+    width:100%;
+    left:0;
+    bottom:0;
+    margin-top:20px;
+}
+
+.about-content h1{
+    font-size:3rem;
+}
+
+}
+
+@media(max-width:600px){
+
+.about-section{
+    padding:120px 6% 60px;
+}
+
+.about-content h1{
+    font-size:2.3rem;
+}
+
+.about-subtitle{
+    flex-wrap:wrap;
+}
+
+.about-subtitle p{
+    font-size:16px;
+}
+
+.feature-box{
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+}
+
+.mission-card{
+    flex-direction:column;
+    text-align:center;
+    align-items:center;
+}
+
+}
+/* REVIEW SECTION */
 
 .reviews,
 .review{

@@ -117,32 +117,7 @@
         </div>
 
     </header>
-    <section class="stats">
-
-            <div class="stat">
-            <i class='bx bxs-user-check'></i>
-            <h2>500+</h2>            
-            <span>Verified Helpers</span>
-        </div>
-
-            <div class="stat">
-            <i class='bx bxs-badge-check'></i>
-            <h2>100%</h2>            
-            <span>Identity Verified</span>
-        </div>
-            <div class="stat">
-            <i class='bx bxs-phone-call'></i>
-            <h2>24/7</h2>            
-            <span>Customer Support</span>
-        </div>
-
-            <div class="stat">
-            <i class='bx bxs-star'></i>
-            <h2>4.9★</h2>
-            <span>Customer Rating</span>
-        </div>
-    </section>
-
+   
        <!-- Main Services -->
     <section class="collections" id="collections">
 
@@ -204,76 +179,118 @@
             </div>
 
     </section>
+     
+    <section class="stats">
+
+            <div class="stat">
+            <i class='bx bxs-user-check'></i>
+            <h2>500+</h2>            
+            <span>Verified Helpers</span>
+        </div>
+
+            <div class="stat">
+            <i class='bx bxs-badge-check'></i>
+            <h2>100%</h2>            
+            <span>Identity Verified</span>
+        </div>
+            <div class="stat">
+            <i class='bx bxs-phone-call'></i>
+            <h2>24/7</h2>            
+            <span>Customer Support</span>
+        </div>
+
+            <div class="stat">
+            <i class='bx bxs-star'></i>
+            <h2>4.9★</h2>
+            <span>Customer Rating</span>
+        </div>
+    </section>
 
                
-               <div class="services-left">
+               <!-- WHY CHOOSE US -->
 
-        <h1>Why Choose Us?</h1>
+<section class="why-section">
 
-        <div class="line"></div>
+    <h2>Why Families Choose HamroJiimma?</h2>
 
-        <p>
-            HamroJiimma is committed to providing trusted and reliable care
-            services for every household. We connect families with verified,
-            experienced, and compassionate service providers.
-        </p>
+    <div class="why-grid">
 
-        <p>
-            Our platform focuses on safety, affordability, convenience, and
-            quality support. Whether you need childcare, elder care, or home
-            assistance, we are here to make your daily life easier.
-        </p>
+        <div class="why-card">
 
-        <ul class="why-list">
-            <li>✔ Verified Service Providers</li>
-            <li>✔ Affordable Pricing</li>
-            <li>✔ Safe & Reliable Services</li>
-            <li>✔ Easy Online Booking</li>
-            <li>✔ Customer Support</li>
-        </ul>
+            <i class='bx bxs-check-shield'></i>
 
-        <a href="{{ url('/contact') }}" class="btn">Contact Us</a>
+            <h3>Verified Providers</h3>
 
-    </div>
-
-    <!--  Reviews -->
-    <!-- Reviews -->
-<section class="reviews" id="reviews">
-
-    <div class="title">
-        <h1>What Our Users Say</h1>
-        <div class="line"></div>
-    </div>
-
-    <div class="review-list">
-
-        @foreach($reviews as $review)
-
-        <div class="review-card">
-
-            @if($review->image)
-                <img src="{{ asset('storage/'.$review->image) }}" alt="{{ $review->name }}">
-            @else
-                <img src="{{ asset('images/default-user.png') }}" alt="User">
-            @endif
-
-            <h3>{{ $review->name }}</h3>
-
-            <div class="rating">
-                @for($i = 0; $i < $review->rating; $i++)
-                    ★
-                @endfor
-            </div>
-
-            <p>{{ $review->review }}</p>
+            <p>
+                All helpers are verified and trusted.
+            </p>
 
         </div>
 
-        @endforeach
+        <div class="why-card">
+
+            <i class='bx bx-heart'></i>
+
+            <h3>Safe & Reliable</h3>
+
+            <p>
+                Your safety and comfort are our top priority.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bx-wallet'></i>
+
+            <h3>Affordable Services</h3>
+
+            <p>
+                Quality care at reasonable prices.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bx-time'></i>
+
+            <h3>24/7 Support</h3>
+
+            <p>
+                We are always here whenever you need us.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bxs-like'></i>
+
+            <h3>Easy Booking</h3>
+
+            <p>
+                Book services online in just a few clicks.
+            </p>
+
+        </div>
+
+        <div class="why-card">
+
+            <i class='bx bxs-group'></i>
+
+            <h3>Happy Families</h3>
+
+            <p>
+                Hundreds of families trust and recommend us.
+            </p>
+
+        </div>
 
     </div>
 
 </section>
+
 
     <!-- Footer -->
     <section class="footer" id="contact">
