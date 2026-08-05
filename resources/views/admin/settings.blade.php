@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>Admin Settings</title>
+    <title>Admin Profile</title>
 
     <link rel="stylesheet" href="{{ asset('style.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -49,7 +49,7 @@
 
         <a href="{{ url('/admin/settings') }}" class="active">
             <i class='bx bx-cog'></i>
-            <span>Settings</span>
+            <span>Profile</span>
         </a>
 
         <form action="{{ url('/logout') }}" method="POST">

@@ -81,13 +81,23 @@ return new class extends Migration
 
         // REVIEWS
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('review');
-            $table->tinyInteger('rating');
-            $table->string('image')->nullable();
-            $table->timestamps();
-        });
+    $table->id();
+
+    $table->foreignId('user_id')
+          ->constrained()
+          ->onDelete('cascade');
+
+    $table->foreignId('service_id')
+          ->constrained()
+          ->onDelete('cascade');
+
+    $table->string('name');
+    $table->text('review');
+    $table->tinyInteger('rating');
+    $table->string('image')->nullable();
+
+    $table->timestamps();
+});
 
 
         // DEFAULT SERVICES

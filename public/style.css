@@ -706,7 +706,14 @@ body.dark-mode .service-image img{
 /* ==========================================
    REVIEWS DISPLAY
 ========================================== */
-
+.review-profile{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #d4af37;
+    margin-bottom:12px;
+}
 .review-list{
     width:90%;
     margin:50px auto;
@@ -756,11 +763,35 @@ body.dark-mode .service-image img{
     font-size:16px;
     line-height:1.6;
 }
+.review-actions{
+    margin-top:15px;
+}
 
+.review-actions .btn{
+    margin-right:10px;
+}
 .rating{
     color:#f59e0b;
     font-size:22px;
     margin-top:15px;
+}
+.login-review-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#0c3253;
+    color:#fff;
+    padding:12px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.login-review-btn:hover{
+    background:#f7b731;
+    color:#0c3253;
+    transform:translateY(-3px);
 }
 /* ==========================================
    ADD REVIEW FORM

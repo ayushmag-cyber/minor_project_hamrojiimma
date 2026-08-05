@@ -140,7 +140,7 @@
 
                 <div class="content">
                     <span>Trusted Support</span>
-                    <a href="{{ url('/services') }}" class="btn">View More</a>
+                    <a href="{{ url('/service/1') }}" class="btn">View More</a>
                 </div>
 
             </div>
@@ -157,7 +157,7 @@
 
                 <div class="content">
                     <span>Safe & Reliable</span>
-                    <a href="{{ url('/services') }}"class="btn">View More</a>
+                   <a href="{{ url('/service/2') }}" class="btn">View More</a>
                 </div>
 
             </div>
@@ -171,7 +171,7 @@
                 </p>
                              <div class="content">
                         <span>Professional Support</span> 
-                    <a href="{{ url('/services') }}" class="btn">Explore</a>
+                    <a href="{{ url('/service/3') }}" class="btn">View More</a>
                 </div>
 
             </div>
@@ -211,7 +211,7 @@
 
 <section class="why-section">
 
-    <h2>Why Families Choose HamroJiimma?</h2>
+    <h2>Why Families Choose HamroJiimma?</h2><br>
 
     <div class="why-grid">
 

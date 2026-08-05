@@ -156,7 +156,7 @@
 
                 <div class="input-box">
                     <label>Booking Date</label>
-                    <input type="date" name="booking_date" required>
+                    <input type="date" id="booking_date" name="booking_date" required>
                 </div>
 
                 <div class="input-box">
@@ -289,7 +289,12 @@
         </p>
 
     </footer>
-
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let today = new Date().toISOString().split("T")[0];
+    document.getElementById("booking_date").setAttribute("min", today);
+});
+</script>
 </body>
 
 </html>

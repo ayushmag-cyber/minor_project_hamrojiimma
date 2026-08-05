@@ -127,27 +127,23 @@ elseif($title == "Event Assistance"){
 
     <li>
         <a href="{{ url('/about') }}" class="about-btn">
-            <i class='bx bx-info-circle'></i> About Us
-        </a>
+            <i class='bx bx-info-circle'></i> About Us</a>
     </li>
 
     <li>
         <a href="{{ url('/services') }}" class="services-btn">
-            <i class='bx bx-briefcase-alt'></i> Services
-        </a>
+            <i class='bx bx-briefcase-alt'></i> Services</a>
     </li>
 
     <li>
         <a href="{{ url('/reviews') }}" class="review-btn">
-            <i class='bx bx-star'></i> Review
-        </a>
+            <i class='bx bx-star'></i> Review </a>
     </li>
 
     @guest
     <li>
         <a href="{{ url('/login') }}" class="login-btn">
-            <i class='bx bx-user'></i> Login
-        </a>
+            <i class='bx bx-user'></i> Login</a>
     </li>
     @endguest
 

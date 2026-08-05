@@ -123,13 +123,36 @@
             </div>
         @endif
 
-        <form action="{{ url('/reviews') }}" method="POST" enctype="multipart/form-data">
+        @if ($errors->any())
+    <div style="color:red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+        <form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
             <div class="input-group">
-                <label>Your Name</label>
-                <input type="text" name="name" value="{{ Auth::user()->name }}" required>
+                   <label>Your Name</label>  
+                <input type="text" value="{{ Auth::user()->name }}" readonly>
+            </div>
+
+                        <div class="input-group">
+
+                    <label>Service</label>
+    
+                <select name="service_id" required>
+    
+                    @foreach($services as $service)
+                    <option value="{{ $service->id }}"> {{ $service->service_name }} </option>  
+                   @endforeach
+    
+                </select>
             </div>
 
             <div class="input-group">
@@ -150,17 +173,7 @@
 
             </div>
 
-            <div class="input-group">
-
-                <label>
-                    Profile Picture (Optional)
-                </label>
-
-                <input type="file" name="image" accept="image/*">
-
-            </div>
-
-            <button type="submit">
+                        <button type="submit">
                 <i class='bx bx-send'></i>
                 Post Review
             </button>
@@ -179,9 +192,9 @@
             Please login to post a review.
         </p>
 
-        <a href="{{ url('/login') }}">
-            Login Now
-        </a>
+                <a href="{{ url('/login') }}" class="login-review-btn">   
+                    <i class='bx bx-log-in'></i> Login Now
+                </a>
 
     </div>
 
@@ -192,49 +205,66 @@
 
     <div class="review-list">
 
-        <h2>Customer Reviews</h2>
+@foreach($services as $service)
 
-        @foreach($reviews as $review)
+<h2>{{ $service->service_name }}</h2>
 
-        <div class="review-card">
+@foreach($reviews->where('service_id', $service->id) as $review)
 
-            @if($review->image)
+<div class="review-card">
 
-                <img src="{{ asset('storage/'.$review->image) }}" 
-                alt="Profile Picture"
-                width="80">
+    @if($review->user && $review->user->profile_photo)
 
-            @endif
+    <img src="{{ asset('profile_photos/'.$review->user->profile_photo) }}"
+         width="80"
+         height="80"
+         style="border-radius:50%; object-fit:cover;">
 
+@endif
 
-            <h3>
-                {{ $review->name }}
-            </h3>
+    <h3>{{ $review->name }}</h3>
 
+    <p>{{ $review->review }}</p>
 
-            <p>
-                {{ $review->review }}
-            </p>
-
-
-            <div class="rating">
-
-                @for($i = 0; $i < $review->rating; $i++)
-
-                    ★
-
-                @endfor
-
-            </div>
-
-
-        </div>
-
-        @endforeach
-
-
+    <div class="rating">
+        @for($i=0;$i<$review->rating;$i++)
+            ★
+        @endfor
     </div>
+    @if(Auth::check() && Auth::user()->name == $review->name)
 
+<div class="review-actions">
+
+    <a href="{{ route('review.edit', $review) }}" class="btn">
+        Edit
+    </a>
+
+    <form action="{{ route('review.destroy', $review) }}"
+          method="POST"
+          style="display:inline;">
+
+        @csrf
+        @method('DELETE')
+
+        <button type="submit"
+                class="btn"
+                onclick="return confirm('Are you sure you want to delete this review?')">
+            Delete
+        </button>
+
+    </form>
+
+</div>
+
+@endif
+
+</div>
+
+@endforeach
+
+@endforeach
+
+</div>
 
 </section>
 

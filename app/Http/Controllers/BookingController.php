@@ -25,7 +25,7 @@ class BookingController extends Controller
 
             'service_id' => 'required',
             'payment_method' => 'required|string',
-            'booking_date' => 'required|date',
+            'booking_date' => 'required|date|after_or_equal:today',
             'booking_time' => 'required',
             'address' => 'required|string',
 
