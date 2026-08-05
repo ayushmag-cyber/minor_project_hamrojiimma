@@ -16,77 +16,55 @@
 <div class="dashboard">
 
 
-<!-- Sidebar -->
-<div class="sidebar">
+ <!-- Sidebar -->
+    <div class="sidebar">
 
-    <i class="bx bx-menu menu-btn"></i>
+        <i class="bx bx-menu menu-btn"></i>
 
+        <a href="{{ url('/') }}">
+            <img src="{{ asset('logo1.png') }}" width="150" height="100">
+        </a>
 
-    <!-- Logo -->
-    <a href="{{ url('/') }}">
-        <img src="{{ asset('logo1.png') }}" width="150" height="100">
-    </a>
+        <a href="{{ url('/admin') }}">
+            <i class='bx bxs-dashboard'></i>
+            <span>Dashboard</span>
+        </a>
 
+        <a href="{{ url('/admin/users') }}">
+            <i class='bx bx-user'></i>
+            <span>Users</span>
+        </a>
 
-    <!-- Dashboard -->
-    <a href="{{ url('/admin') }}" class="active">
-        <i class='bx bxs-dashboard'></i>
-        <span>Dashboard</span>
-    </a>
+        <a href="{{ url('/admin/services') }}">
+            <i class='bx bx-briefcase'></i>
+            <span>Services</span>
+        </a>
 
+        <a href="{{ url('/admin/bookings') }}">
+            <i class='bx bx-calendar-check'></i>
+            <span>Bookings</span>
+        </a>
 
-    <!-- Manage Users -->
-    <a href="{{ url('/admin/users') }}">
-        <i class='bx bx-user'></i>
-        <span>Users</span>
-    </a>
+        <a href="{{ url('/admin/reviews') }}">
+            <i class='bx bx-star'></i>
+            <span>Reviews</span>
+        </a>
 
+        <a href="{{ url('/admin/settings') }}" class="active">
+            <i class='bx bx-cog'></i>
+            <span>Profile</span>
+        </a>
 
-    <!-- Manage Services -->
-    <a href="{{ url('/admin/services') }}">
-        <i class='bx bx-briefcase'></i>
-        <span>Services</span>
-    </a>
+        <form action="{{ url('/logout') }}" method="POST">
+            @csrf
+            <button class="logout-btn">
+                <i class='bx bx-log-out'></i>
+                Logout
+            </button>
+        </form>
 
+    </div>
 
-    <!-- Manage Bookings -->
-    <a href="{{ url('/admin/bookings') }}">
-        <i class='bx bx-calendar-check'></i>
-        <span>Bookings</span>
-    </a>
-
-
-    <!-- Reviews -->
-    <a href="{{ url('/admin/reviews') }}">
-        <i class='bx bx-star'></i>
-        <span>Reviews</span>
-    </a>
-
-
-    <!-- Settings -->
-    <a href="{{ url('/admin/settings') }}">
-        <i class='bx bx-cog'></i>
-        <span>Settings</span>
-    </a>
-
-
-
-    <!-- Logout -->
-    <form action="{{ url('/logout') }}" method="POST">
-
-        @csrf
-
-        <button class="logout-btn">
-
-            <i class='bx bx-log-out'></i>
-            Logout
-
-        </button>
-
-    </form>
-
-
-</div>
 
 
 

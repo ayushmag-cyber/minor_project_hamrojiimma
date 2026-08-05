@@ -64,20 +64,35 @@
     </li>
     @endguest
 
-    @auth
-    <li>
-        <a href="{{ url('/dashboard') }}" class="login-btn">
-            <i class='bx bx-user-circle'></i>
-            {{ Auth::user()->name }}
-        </a>
-    </li>
-    @endauth
-
+    
     <li>
         <a href="{{ url('/contact') }}" class="contact-btn">
             <i class='bx bx-phone'></i> Contact
         </a>
     </li>
+
+    @auth
+
+<li>
+    <a href="{{ url('/dashboard') }}" class="login-btn">
+        <i class='bx bx-user-circle'></i>
+        {{ Auth::user()->name }}
+    </a>
+</li>
+
+<li>
+    <form action="{{ url('/logout') }}" method="POST">
+        @csrf
+
+        <button type="submit" class="logout-btn">
+            <i class='bx bx-log-out'></i>
+            Logout
+        </button>
+
+    </form>
+</li>
+
+@endauth
 </ul>
 
     <div class="nav-icons">
@@ -94,7 +109,7 @@
 
     </div>
 
-    <i class="bx bx-menu menu-btn"></i>
+    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
 
 </nav>
 
@@ -192,6 +207,13 @@
                     </div>
 
                 </div>
+                <a href="{{ url('/services') }}" class="explore-service-btn">
+
+    <i class='bx bx-briefcase'></i>
+
+    <span>Explore Services</span>
+
+</a>
 
             </div>
 
@@ -232,11 +254,11 @@
 
 </section>
 
-<!-- ================= WHY CHOOSE US ================= -->
+<!why us>
 
 <section class="why-section">
 
-    <h2>Why Families Choose HamroJiimma?</h2>
+    <h2>Why Families Choose HamroJiimma?</h2><br><br>
 
     <div class="why-grid">
 

@@ -16,62 +16,55 @@
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+ <!-- Sidebar -->
     <div class="sidebar">
 
         <i class="bx bx-menu menu-btn"></i>
 
-        <!-- Logo -->
         <a href="{{ url('/') }}">
             <img src="{{ asset('logo1.png') }}" width="150" height="100">
         </a>
 
-        <!-- Dashboard -->
         <a href="{{ url('/admin') }}">
             <i class='bx bxs-dashboard'></i>
             <span>Dashboard</span>
         </a>
 
-        <!-- Users -->
         <a href="{{ url('/admin/users') }}">
             <i class='bx bx-user'></i>
             <span>Users</span>
         </a>
 
-        <!-- Services -->
-        <a href="{{ url('/admin/services') }}" class="active">
+        <a href="{{ url('/admin/services') }}">
             <i class='bx bx-briefcase'></i>
             <span>Services</span>
         </a>
 
-        <!-- Bookings -->
         <a href="{{ url('/admin/bookings') }}">
             <i class='bx bx-calendar-check'></i>
             <span>Bookings</span>
         </a>
 
-        <!-- Reviews -->
         <a href="{{ url('/admin/reviews') }}">
             <i class='bx bx-star'></i>
             <span>Reviews</span>
         </a>
 
-        <!-- Settings -->
-        <a href="{{ url('/admin/settings') }}">
+        <a href="{{ url('/admin/settings') }}" class="active">
             <i class='bx bx-cog'></i>
-            <span>Settings</span>
+            <span>Profile</span>
         </a>
 
-        <!-- Logout -->
         <form action="{{ url('/logout') }}" method="POST">
             @csrf
-            <button type="submit" class="logout-btn">
+            <button class="logout-btn">
                 <i class='bx bx-log-out'></i>
                 Logout
             </button>
         </form>
 
     </div>
+
 
     <!-- Main Content -->
     <div class="main-content">

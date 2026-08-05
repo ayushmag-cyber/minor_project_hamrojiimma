@@ -18,7 +18,7 @@
     <!-- Sidebar -->
 <div class="sidebar">
     
-    <i class="bx bx-menu menu-btn"></i>
+    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
     <!-- Logo -->
     <a href="{{ url('/') }}">
         <img src="{{ asset('logo1.png') }}" alt="HamroJiimma Services" width="150" height="100">

@@ -15,18 +15,23 @@ class ServiceController extends Controller
     }
 
 
-    public function show(Service $service)
-    {
-        $reviews = Review::where('service_id', $service->id)
-                         ->latest()
-                         ->get();
+    public function show($id)
+{
+    $service = Service::findOrFail($id);
 
-        $averageRating = round($reviews->avg('rating'), 1);
+    $reviews = Review::where('service_id', $id)
+                    ->latest()
+                    ->get();
 
-        return view('service-details', compact(
-            'service',
-            'reviews',
-            'averageRating'
-        ));
-    }
+    $averageRating = round($reviews->avg('rating'), 1);
+
+    $reviewCount = $reviews->count();
+
+    return view('service-details', compact(
+        'service',
+        'reviews',
+        'averageRating',
+        'reviewCount'
+    ));
+}
 }

@@ -1,182 +1,131 @@
-// ===============================
-// DARK MODE
-// ===============================
+// Dark mode
 
 const themeToggle = document.getElementById("theme-toggle");
 
 if (themeToggle) {
 
-    // Load saved theme
     if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark-mode");
         themeToggle.innerHTML = "<i class='bx bx-sun'></i>";
     }
 
-    themeToggle.addEventListener("click", () => {
+    themeToggle.onclick = () => {
 
         document.body.classList.toggle("dark-mode");
 
         if (document.body.classList.contains("dark-mode")) {
-
             themeToggle.innerHTML = "<i class='bx bx-sun'></i>";
             localStorage.setItem("theme", "dark");
-
         } else {
-
             themeToggle.innerHTML = "<i class='bx bx-moon'></i>";
             localStorage.setItem("theme", "light");
-
         }
 
-    });
+    };
 
 }
 
 
-// ===============================
-// MOBILE MENU
-// ===============================
+// Mobile menu
 
 const menuBtn = document.querySelector(".menu-btn");
 const navLinks = document.querySelector(".nav-link");
 
-if (menuBtn && navLinks) {
+if(menuBtn && navLinks){
 
-    menuBtn.addEventListener("click", () => {
-
+    menuBtn.onclick = () => {
         navLinks.classList.toggle("active");
-
-    });
+    };
 
 }
 
 
-// ===============================
-// SEARCH BOX
-// ===============================
+// Close menu after selecting option
+
+document.querySelectorAll(".nav-link a").forEach(link => {
+
+    link.onclick = () => {
+
+        if(navLinks){
+            navLinks.classList.remove("active");
+        }
+
+    };
+
+});
+
+
+// Search
 
 const searchIcon = document.getElementById("search-icon");
 const searchBox = document.querySelector(".search-box");
 
-if (searchIcon && searchBox) {
+if(searchIcon && searchBox){
 
-    searchIcon.addEventListener("click", () => {
-
+    searchIcon.onclick = () => {
         searchBox.classList.toggle("active");
-
-    });
-
-}
-
-
-// ===============================
-// CONTACT FORM
-// ===============================
-
-const contactForm = document.getElementById("contact-form");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        document.getElementById("success-message").style.display = "block";
-
-        this.reset();
-
-        setTimeout(() => {
-
-            document.getElementById("success-message").style.display = "none";
-
-        }, 3000);
-
-    });
+    };
 
 }
 
 
-// ===============================
-// LOGIN FORM
-// ===============================
+// Close search outside click
 
-const loginForm = document.getElementById("login-form");
+document.addEventListener("click", function(e){
 
-if (loginForm) {
+    if(searchBox && searchIcon){
 
-    loginForm.addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        const message = document.getElementById("login-message");
-
-        message.innerHTML = "Login Successful!";
-        message.style.display = "block";
-
-        this.reset();
-
-        setTimeout(() => {
-
-            message.style.display = "none";
-
-        }, 3000);
-
-    });
-
-}
-
-
-// ===============================
-// CLOSE MENU AFTER CLICKING A LINK
-// ===============================
-
-const navItems = document.querySelectorAll(".nav-link a");
-
-navItems.forEach(item => {
-
-    item.addEventListener("click", () => {
-
-        if (navLinks) {
-            navLinks.classList.remove("active");
+        if(!searchBox.contains(e.target) && !searchIcon.contains(e.target)){
+            searchBox.classList.remove("active");
         }
-
-    });
-
-});
-
-
-// ===============================
-// CLOSE SEARCH WHEN CLICKING OUTSIDE
-// ===============================
-
-document.addEventListener("click", function (e) {
-
-    if (
-        searchBox &&
-        searchIcon &&
-        !searchBox.contains(e.target) &&
-        !searchIcon.contains(e.target)
-    ) {
-
-        searchBox.classList.remove("active");
 
     }
 
 });
-// ===============================
-// AUTO HIDE SUCCESS MESSAGE
-// ===============================
 
-const successMessage = document.getElementById("success-message");
 
-if (successMessage) {
-    setTimeout(() => {
-        successMessage.style.transition = "opacity 0.5s";
-        successMessage.style.opacity = "0";
+// Contact form message
 
-        setTimeout(() => {
-            successMessage.remove();
-        }, 500);
+const contactForm = document.getElementById("contact-form");
 
-    }, 5000);
+if(contactForm){
+
+    contactForm.onsubmit = function(e){
+
+        e.preventDefault();
+
+        const msg = document.getElementById("success-message");
+
+        if(msg){
+            msg.style.display = "block";
+        }
+
+        this.reset();
+
+    };
+
+}
+
+
+// Login message
+
+const loginForm = document.getElementById("login-form");
+
+if(loginForm){
+
+    loginForm.onsubmit = function(e){
+
+        e.preventDefault();
+
+        const msg = document.getElementById("login-message");
+
+        if(msg){
+            msg.innerHTML = "Login Successful!";
+            msg.style.display = "block";
+        }
+
+        this.reset();
+
+    };
+
 }

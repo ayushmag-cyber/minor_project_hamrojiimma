@@ -147,20 +147,35 @@ elseif($title == "Event Assistance"){
     </li>
     @endguest
 
-    @auth
-    <li>
-        <a href="{{ url('/dashboard') }}" class="login-btn">
-            <i class='bx bx-user-circle'></i>
-            {{ Auth::user()->name }}
-        </a>
-    </li>
-    @endauth
-
+   
     <li>
         <a href="{{ url('/contact') }}" class="contact-btn">
             <i class='bx bx-phone'></i> Contact
         </a>
     </li>
+
+    @auth
+
+<li>
+    <a href="{{ url('/dashboard') }}" class="login-btn">
+        <i class='bx bx-user-circle'></i>
+        {{ Auth::user()->name }}
+    </a>
+</li>
+
+<li>
+    <form action="{{ url('/logout') }}" method="POST">
+        @csrf
+
+        <button type="submit" class="logout-btn">
+            <i class='bx bx-log-out'></i>
+            Logout
+        </button>
+
+    </form>
+</li>
+
+@endauth
 </ul>
 
     <div class="nav-icons">
@@ -177,7 +192,7 @@ elseif($title == "Event Assistance"){
 
     </div>
 
-    <i class="bx bx-menu menu-btn"></i>
+    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
 </nav>
 <!-- Service Details -->
 
@@ -198,23 +213,42 @@ elseif($title == "Event Assistance"){
             </p>
 
             <div class="rating">
+
+    @if($reviewCount > 0)
+
+        @for($i = 1; $i <= 5; $i++)
+
+            @if($i <= floor($averageRating))
                 <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
-                <i class='bx bxs-star'></i>
+
+            @elseif($i - $averageRating < 1)
                 <i class='bx bxs-star-half'></i>
 
-                <span>4.8 (120 Reviews)</span>
-            </div>
+            @else
+                <i class='bx bx-star'></i>
+
+            @endif
+
+        @endfor
+
+        <span>
+            {{ $averageRating }} ({{ $reviewCount }} Reviews)
+        </span>
+
+    @else
+
+        <span>No Reviews Yet</span>
+
+    @endif
+
+</div>
      
                 <div class="price-box">   
                 <span>Service Charge</span>
                 <h3>{{ $price }}</h3>
             </div>
 
-            <a href="{{ url('/booking') }}" class="book-service-btn">
-                Book This Service
-            </a>
+            <a href="{{ url('/booking?service='.$service->id) }}" class="book-service-btn"> Book This Service</a>
 
         </div>
 

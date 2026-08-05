@@ -89,7 +89,7 @@
 
     </div>
 
-    <i class="bx bx-menu menu-btn"></i>
+    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
 
 </nav>
 

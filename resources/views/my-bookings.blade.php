@@ -17,58 +17,72 @@
 <div class="dashboard">
 
     <!-- Sidebar -->
-
-    <div class="sidebar">
-            <i class="bx bx-menu menu-btn"></i>
-
-        <a href="{{ url('/') }}">
-  <img src="{{ asset('logo1.png') }}" alt="HamroJiimma Services" width="150" height="100">
+<div class="sidebar">
+    
+    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
+    <!-- Logo -->
+    <a href="{{ url('/') }}">
+        <img src="{{ asset('logo1.png') }}" alt="HamroJiimma Services" width="150" height="100">
     </a>
 
-        <a href="{{ url('/dashboard') }}">
-            <i class='bx bxs-dashboard'></i>
-            Dashboard
-        </a>
+    <!-- Dashboard -->
+    <a href="{{ url('/dashboard') }}" class="active">
+        <i class='bx bxs-dashboard'></i>
+        <span>Dashboard</span>
+    </a>
 
-        <a href="{{ url('/booking') }}">
-            <i class='bx bx-calendar-plus'></i>
-            Book Service
-        </a>
+    <!-- Home -->
+    <a href="{{ url('/') }}">
+        <i class='bx bx-home'></i>
+        <span>Home</span>
+    </a>
 
-        <a class="active" href="{{ url('/my-bookings') }}">
-            <i class='bx bx-book-content'></i>
-            My Bookings
-        </a>
+    <!-- About -->
+    <a href="{{ url('/about') }}">
+        <i class='bx bx-info-circle'></i>
+        <span>About Us</span>
+    </a>
 
-        <a href="{{ url('/services') }}">
-            <i class='bx bx-briefcase'></i>
-            Services
-        </a>
+    <!-- Book Service -->
+    <a href="{{ url('/booking') }}">
+        <i class='bx bx-calendar-plus'></i>
+        <span>Book Service</span>
+    </a>
 
-        <a href="{{ url('/reviews') }}">
-            <i class='bx bx-star'></i>
-            Reviews
-        </a>
+    <!-- My Bookings -->
+    <a href="{{ url('/my-bookings') }}">
+        <i class='bx bx-book-content'></i>
+        <span>My Bookings</span>
+    </a>
 
-        <a href="{{ url('/contact') }}">
-            <i class='bx bx-phone'></i>
-            Contact
-        </a>
+    <!-- Services -->
+    <a href="{{ url('/services') }}">
+        <i class='bx bx-briefcase'></i>
+        <span>Services</span>
+    </a>
 
-        <form action="{{ url('/logout') }}" method="POST">
-            @csrf
+    <!-- Reviews -->
+    <a href="{{ url('/reviews') }}">
+        <i class='bx bx-star'></i>
+        <span>Reviews</span>
+    </a>
 
-            <button class="logout-btn">
+    <!-- Contact -->
+    <a href="{{ url('/contact') }}">
+        <i class='bx bx-phone'></i>
+        <span>Contact</span>
+    </a>
 
-                <i class='bx bx-log-out'></i>
+    <!-- Logout -->
+    <form action="{{ url('/logout') }}" method="POST">
+        @csrf
+        <button type="submit" class="logout-btn">
+            <i class='bx bx-log-out'></i>
+            Logout
+        </button>
+    </form>
 
-                Logout
-
-            </button>
-
-        </form>
-
-    </div>
+</div>
 
     <!-- Main Content -->
 

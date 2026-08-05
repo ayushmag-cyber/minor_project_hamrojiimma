@@ -16,7 +16,7 @@
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+ <!-- Sidebar -->
     <div class="sidebar">
 
         <i class="bx bx-menu menu-btn"></i>
@@ -45,25 +45,26 @@
             <span>Bookings</span>
         </a>
 
-        <a href="{{ url('/admin/reviews') }}" class="active">
+        <a href="{{ url('/admin/reviews') }}">
             <i class='bx bx-star'></i>
             <span>Reviews</span>
         </a>
 
-        <a href="{{ url('/admin/settings') }}">
+        <a href="{{ url('/admin/settings') }}" class="active">
             <i class='bx bx-cog'></i>
-            <span>Settings</span>
+            <span>Profile</span>
         </a>
 
         <form action="{{ url('/logout') }}" method="POST">
             @csrf
-            <button type="submit" class="logout-btn">
+            <button class="logout-btn">
                 <i class='bx bx-log-out'></i>
                 Logout
             </button>
         </form>
 
     </div>
+
 
     <!-- Main Content -->
     <div class="main-content">
@@ -80,6 +81,7 @@
                     <th>Name</th>
                     <th>Review</th>
                     <th>Rating</th>
+                    <th>Action</th>
                 </tr>
 
             </thead>
@@ -89,36 +91,45 @@
             @foreach($reviews as $review)
 
                 <tr>
-
                     <td>{{ $review->id }}</td>
-
-                    <td>
-
+   
+                    <td> 
                         @if($review->image)
-                            <img src="{{ asset('reviews/'.$review->image) }}" class="review-img">
-                        @else
-                            No Image
-                        @endif
+                           <img src="{{ asset('reviews/'.$review->image) }}" class="review-img">
+                           @else
+                           No Image
+                           @endif
+                       </td>
+                     <td>{{ $review->name }}</td>
+                       <td>{{ $review->review }}</td>
 
-                    </td>
+                       <td>
+                           <span class="review-rating">
+                               ⭐ {{ $review->rating }}/5
+                           </span>
+                       </td>
+   
+                    <td>  
+                        <form action="{{ route('admin.review.delete',$review->id) }}" method="POST">
+                            @csrf
+   
+                            @method('DELETE')
 
-                    <td>{{ $review->name }}</td>
-
-                    <td>{{ $review->review }}</td>
-
-                    <td>
-
-                        <span class="review-rating">
-                            ⭐ {{ $review->rating }}/5
-                        </span>
-
-                    </td>
-
-                </tr>
-
+                               <button type="submit" class="btn"  
+                            onclick="return confirm('Delete this review?')">
+   
+                            <i class='bx bx-trash'></i>
+                               Delete  
+                        </button>
+   
+                    </form>
+  
+                </td>  
+            </tr>
+   
             @endforeach
-
-            </tbody>
+  
+        </tbody>
 
         </table>
 

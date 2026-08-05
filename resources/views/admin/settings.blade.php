@@ -13,7 +13,7 @@
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+ <!-- Sidebar -->
     <div class="sidebar">
 
         <i class="bx bx-menu menu-btn"></i>
@@ -62,6 +62,7 @@
 
     </div>
 
+
     <!-- Main Content -->
     <div class="main-content">
 
@@ -95,13 +96,44 @@
 
                 <div class="profile-right">
 
-                    <h2>Administrator Information</h2>
 
-                    <p><strong>Name:</strong> {{ Auth::user()->name }}</p>
+                   <h2>Edit Profile</h2>
 
-                    <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+<form action="{{ url('/admin/update-profile') }}" method="POST">
 
-                    <p><strong>Role:</strong> {{ ucfirst(Auth::user()->role) }}</p>
+@csrf
+
+<div class="input-box">
+    <label>Name</label>
+    <input type="text" 
+           name="name" 
+           value="{{ Auth::user()->name }}"
+           required>
+</div>
+
+
+<div class="input-box">
+    <label>Email</label>
+    <input type="email" 
+           name="email" 
+           value="{{ Auth::user()->email }}"
+           required>
+</div>
+
+
+<div class="input-box">
+    <label>Role</label>
+    <input type="text" 
+           value="{{ ucfirst(Auth::user()->role) }}"
+           readonly>
+</div>
+
+
+<button type="submit" class="booking-btn">
+    Update Profile
+</button>
+
+</form>
 
                     <hr><br>
 

@@ -11,12 +11,14 @@ class BookingController extends Controller
 {
 
     // Show Booking Page
-    public function create()
-    {
-        $services = Service::where('status', 'Available')->get();
+    public function create(Request $request)
+{
+    $services = Service::all();
 
-        return view('booking', compact('services'));
-    }
+    $selectedService = $request->service;
+
+    return view('booking', compact('services', 'selectedService'));
+}
 
     // Store Booking
     public function store(Request $request)

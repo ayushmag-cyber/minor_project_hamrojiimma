@@ -17,7 +17,7 @@
 
 <div class="dashboard">
 
-    <!-- Sidebar -->
+     <!-- Sidebar -->
     <div class="sidebar">
 
         <i class="bx bx-menu menu-btn"></i>
@@ -41,7 +41,7 @@
             <span>Services</span>
         </a>
 
-        <a href="{{ url('/admin/bookings') }}" class="active">
+        <a href="{{ url('/admin/bookings') }}">
             <i class='bx bx-calendar-check'></i>
             <span>Bookings</span>
         </a>
@@ -51,9 +51,9 @@
             <span>Reviews</span>
         </a>
 
-        <a href="{{ url('/admin/settings') }}">
+        <a href="{{ url('/admin/settings') }}" class="active">
             <i class='bx bx-cog'></i>
-            <span>Settings</span>
+            <span>Profile</span>
         </a>
 
         <form action="{{ url('/logout') }}" method="POST">
