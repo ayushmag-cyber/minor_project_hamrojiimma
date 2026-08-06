@@ -180,4 +180,21 @@ public function updatePassword(Request $request)
 
     return back()->with('success','Password updated successfully!');
 }
+public function changeServiceStatus($id)
+{
+    $service = \App\Models\Service::findOrFail($id);
+
+    if($service->status == "Available")
+    {
+        $service->status = "Unavailable";
+    }
+    else
+    {
+        $service->status = "Available";
+    }
+
+    $service->save();
+
+    return redirect('/admin/services');
+}
 }

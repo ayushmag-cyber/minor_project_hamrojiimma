@@ -2487,33 +2487,150 @@ body.dark-mode .user-table tbody tr:hover{
     border:2px solid #ddd;
 }
 
-.status-available{
-    background:#28a745;
-    color:#fff;
+
+/* Add Service Button */
+
+.main-content > a{
+    display:inline-block;
+    background:#d4a017;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.main-content > a:hover{
+    background:#b8860b;
+}
+
+
+/* Service Table */
+
+.user-table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+
+.user-table th{
+    background:#222;
+    color:white;
+    padding:15px;
+    text-align:left;
+    font-size:14px;
+}
+
+
+.user-table td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    color:#444;
+    vertical-align:middle;
+}
+
+
+.user-table tr:hover{
+    background:#fafafa;
+}
+
+
+
+/* Status */
+
+.status-available,
+.status-unavailable{
+
     padding:6px 14px;
     border-radius:20px;
     font-size:13px;
     font-weight:600;
+    color:white;
+
 }
+
+
+.status-available{
+    background:#28a745;
+}
+
 
 .status-unavailable{
     background:#dc3545;
-    color:#fff;
-    padding:6px 14px;
-    border-radius:20px;
+}
+
+
+
+/* Action Buttons */
+
+.user-table td a{
+
+    display:inline-block;
+    background:#333;
+    color:white;
+    padding:7px 12px;
+    border-radius:6px;
+    text-decoration:none;
     font-size:13px;
-    font-weight:600;
+    margin:3px;
+    transition:0.3s;
+
+}
+
+
+.user-table td a:hover{
+
+    background:#d4a017;
+
+}
+
+
+
+/* Delete Button */
+
+.user-table button{
+
+    background:#dc3545;
+    color:white;
+    border:none;
+    padding:7px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+}
+.user-table button:hover{
+   background:#b02a37;
 }
 
 /* Dark Mode */
-
 body.dark .service-img{
     border:2px solid #555;
+}
+body.dark .user-table{
+    background:#1e1e1e;
+}
+body.dark .user-table th{
+    background:#111;
 }
 
 body.dark .user-table td{
     color:#f5f5f5;
+    border-bottom:1px solid #444;
 }
+body.dark .user-table tr:hover{
+    background:#292929;
+}
+body.dark .main-content h1{
+    color:#fff;
+}
+
 /* ===== ADMIN REVIEWS ===== */
 
 .review-img{

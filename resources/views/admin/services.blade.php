@@ -67,81 +67,111 @@
 
 
     <!-- Main Content -->
-    <div class="main-content">
+   <div class="main-content">
 
-        <h1>Manage Services</h1>
+    @if(session('success'))
 
-        <table class="user-table">
+    <p style="color:green;">
+        {{ session('success') }}
+    </p>
 
-            <thead>
+    @endif
 
-                <tr>
-                    <th>ID</th>
-                    <th>Image</th>
-                    <th>Service</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                </tr>
 
-            </thead>
+    <a href="{{ route('admin.services.create') }}">
+        + Add New Service
+    </a>
 
-            <tbody>
 
-            @foreach($services as $service)
+    <h1>Manage Services</h1>
 
-                <tr>
 
-                    <td>{{ $service->id }}</td>
+    <table class="user-table">
 
-                    <td>
+        <thead>
 
-                        @if($service->image)
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Service</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
 
-                            <img src="{{ asset($service->image) }}" class="service-img">
+        </thead>
 
-                        @else
+        <tbody>
 
-                            No Image
+        @foreach($services as $service)
 
-                        @endif
+            <tr>
 
-                    </td>
+                <td>{{ $service->id }}</td>
+               <td>
+                    @if($service->image)
+                        <img src="{{ asset($service->image) }}" class="service-img">
+                    @else
+                        No Image
+                    @endif
+                </td>
 
-                    <td>{{ $service->service_name }}</td>
+                <td>
+                    {{ $service->service_name }}
+                </td>
 
-                    <td>{{ $service->description }}</td>
+                <td>
+                    {{ $service->description }}
+                </td>
 
-                    <td>Rs. {{ number_format($service->price,2) }}</td>
+                <td>
+                    Rs. {{ number_format($service->price,2) }}
+                </td>
 
-                    <td>
+                <td>
+                   @if($service->status == "Available")
+                        <span class="status-available">
+                            Available
+                        </span>
+                    @else
+                        <span class="status-unavailable">
+                            Unavailable
+                        </span>
+                    @endif
+                </td>
 
-                        @if($service->status == "Available")
+                <td>
+                    <a href="{{ route('admin.services.edit',$service->id) }}">
+                        Edit
+                    </a>
 
-                            <span class="status-available">
-                                Available
-                            </span>
+                    <a href="{{ route('admin.services.status',$service->id) }}">
+                        Change Status
+                    </a>
 
-                        @else
+                    <form action="{{ route('admin.services.delete',$service->id) }}"
+                          method="POST"
+                          style="display:inline;">
 
-                            <span class="status-unavailable">
-                                Unavailable
-                            </span>
+                        @csrf
+                        @method('DELETE')
 
-                        @endif
+                        <button type="submit">
+                            Delete
+                        </button>
+                    </form>
 
-                    </td>
+                </td>
+            </tr>
+        @endforeach
 
-                </tr>
+        </tbody>
 
-            @endforeach
+    </table>
 
-            </tbody>
-
-        </table>
-
+</div>
     </div>
-
 </div>
 
 </body>

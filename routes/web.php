@@ -15,7 +15,7 @@ use App\Http\Controllers\MyBookingController;
 use App\Http\Controllers\AdminController;
 
 
-/* Public Pages */
+/** Public Pages */
 
 Route::get('/', function () {
     $reviews = Review::latest()->take(6)->get();
@@ -29,7 +29,7 @@ Route::view('/register', 'register')->name('register');
 Route::view('/forgot-password', 'forgot-password');
 
 
-/* Reviews */
+/** Reviews */
 
 Route::get('/reviews', [ReviewController::class, 'index'])
     ->name('reviews');
@@ -51,7 +51,7 @@ Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])
     ->name('review.destroy');
 
 
-/* Services */
+/** Services */
 
 Route::get('/services', [ServiceController::class, 'index'])
     ->name('services');
@@ -60,7 +60,7 @@ Route::get('/service/{service}', [ServiceController::class, 'show'])
     ->name('service.details');
 
 
-/* Protected Routes */
+/** Protected Routes */
 
 Route::middleware('auth')->group(function () {
 
@@ -75,15 +75,17 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    /* Admin */
+    /** Admin */
 
     Route::get('/admin', [AdminController::class, 'dashboard']);
 
     Route::get('/admin/users', [AdminController::class, 'users']);
 
+
+    /** Admin Services */
+
     Route::get('/admin/services', [AdminController::class, 'services'])
         ->name('admin.services');
-
 
     Route::get('/admin/services/create', [AdminController::class, 'createService'])
         ->name('admin.services.create');
@@ -100,8 +102,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/services/delete/{id}', [AdminController::class, 'deleteService'])
         ->name('admin.services.delete');
 
+    Route::get('/admin/services/status/{id}', [AdminController::class, 'changeServiceStatus'])
+        ->name('admin.services.status');
+
+
+    /** Admin Bookings */
 
     Route::get('/admin/bookings', [AdminController::class, 'bookings']);
+
+
+    /** Admin Reviews */
 
     Route::get('/admin/reviews', [AdminController::class, 'reviews']);
 
@@ -109,19 +119,20 @@ Route::middleware('auth')->group(function () {
         ->name('admin.review.delete');
 
 
+    /** Admin Settings */
+
     Route::view('/admin/settings', 'admin.settings');
 
     Route::post('/admin/update-password', [AdminController::class, 'updatePassword']);
 
 
-    /* Booking */
+    /** Booking */
 
     Route::get('/booking', [BookingController::class, 'create']);
 
     Route::post('/booking', [BookingController::class, 'store']);
 
     Route::get('/my-bookings', [MyBookingController::class, 'index']);
-
 
     Route::get('/booking/approve/{id}', [BookingController::class, 'approve']);
 
@@ -130,18 +141,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/booking/cancel/{id}', [BookingController::class, 'cancel']);
 
 
-    /* Profile */
+    /** Profile */
 
     Route::post('/profile/update', [ProfileController::class, 'update']);
 
 });
 
 
-/* Authentication */
+/** Authentication */
 
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::post('/login', [AuthController::class, 'login']);
+
 Route::post('/admin/update-profile', [AdminController::class, 'updateProfile']);
 
 
@@ -157,9 +169,14 @@ Route::post('/logout', function () {
 
 });
 
-/* Contact */
+
+/** Contact */
 
 Route::post('/contact', [ContactController::class, 'store']);
+
+
+/** Payment */
+
 Route::get('/payment/{booking}', function($booking){
 
     $booking = \App\Models\Booking::with('service')->findOrFail($booking);
