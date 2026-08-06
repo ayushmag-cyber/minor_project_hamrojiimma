@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Users</title>
+    <title>Service Providers</title>
 
     <link rel="stylesheet" href="{{ asset('style.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -16,7 +16,7 @@
 
 <div class="dashboard">
 
- <!-- Sidebar -->
+    <!-- Sidebar -->
     <div class="sidebar">
 
         <i class="bx bx-menu menu-btn"></i>
@@ -34,10 +34,11 @@
             <i class='bx bx-user'></i>
             <span>Users</span>
         </a>
-        <a href="{{ url('/admin/providers') }}">
-    <i class='bx bx-user-plus'></i>
-    <span>Service Providers</span>
-      </a>
+
+        <a href="{{ url('/admin/providers') }}" class="active">
+            <i class='bx bx-user-plus'></i>
+            <span>Service Providers</span>
+        </a>
 
         <a href="{{ url('/admin/services') }}">
             <i class='bx bx-briefcase'></i>
@@ -54,7 +55,7 @@
             <span>Reviews</span>
         </a>
 
-        <a href="{{ url('/admin/settings') }}" class="active">
+        <a href="{{ url('/admin/settings') }}">
             <i class='bx bx-cog'></i>
             <span>Profile</span>
         </a>
@@ -69,58 +70,72 @@
 
     </div>
 
-
     <!-- Main Content -->
+
     <div class="main-content">
 
-        <h1>Registered Users</h1>
+        <h1>Service Providers</h1>
+
+        <a href="{{ route('admin.providers.create') }}" class="card-btn">
+            + Add Provider
+        </a>
+
+        <br><br>
 
         <table class="user-table">
 
             <thead>
 
-                <tr>
+            <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Role</th>
-                </tr>
+                    <th>Role</th>   
+                <th>Action</th>
+            </tr>
 
             </thead>
 
             <tbody>
 
-            @foreach($users as $user)
+@foreach($providers as $provider)
 
-                <tr>
+<tr>
 
-                    <td>{{ $user->id }}</td>
+    <td>{{ $provider->id }}</td>
 
-                    <td>{{ $user->name }}</td>
+    <td>{{ $provider->name }}</td>
 
-                    <td>{{ $user->email }}</td>
+    <td>{{ $provider->email }}</td>
 
-                    <td>{{ $user->phone }}</td>
+    <td>{{ $provider->phone }}</td>
 
-                    <td>
+    <td>
+        <span class="status-available">
+            {{ ucfirst($provider->role) }}
+        </span>
+    </td>
 
-                        @if($user->role == 'admin')
-                            <span class="role-admin">Admin</span>
-                        @else
-                            <span class="role-user">User</span>
-                        @endif
+    <td>
 
-                    </td>
+        <a href="#" class="btn">
+            Edit
+        </a>
 
-                </tr>
+        <a href="#" class="btn">
+            Delete
+        </a>
 
-            @endforeach
+    </td>
 
-            </tbody>
+</tr>
 
+@endforeach
+
+</tbody>
         </table>
-
+   
     </div>
 
 </div>

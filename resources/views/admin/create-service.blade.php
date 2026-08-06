@@ -33,6 +33,11 @@
             <span>Users</span>
         </a>
 
+        <a href="{{ url('/admin/providers') }}">
+      <i class='bx bx-user-plus'></i>
+      <span>Service Providers</span>
+      </a>
+
         <a href="{{ url('/admin/services') }}">
             <i class='bx bx-briefcase'></i>
             <span>Services</span>
@@ -99,6 +104,26 @@
 
         <label>Description</label>
         <textarea name="description" placeholder="Enter service description"required></textarea>
+
+        <div class="form-group">
+    <label>About This Service</label>
+
+    <textarea
+        name="about"
+        rows="5"
+        placeholder="Enter complete details about this service"
+        required></textarea>
+</div>
+
+<div class="form-group">
+    <label>Services Included</label>
+
+    <textarea
+        name="included_services"
+        rows="6"
+        placeholder="Write one service per line"
+        required></textarea>
+</div>
 
         <label>Price</label>
 

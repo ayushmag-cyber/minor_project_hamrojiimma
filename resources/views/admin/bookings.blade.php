@@ -17,7 +17,7 @@
 
 <div class="dashboard">
 
-     <!-- Sidebar -->
+    <!-- Sidebar -->
     <div class="sidebar">
 
         <i class="bx bx-menu menu-btn"></i>
@@ -36,6 +36,11 @@
             <span>Users</span>
         </a>
 
+        <a href="{{ url('/admin/providers') }}">
+            <i class='bx bx-user-plus'></i>
+            <span>Service Providers</span>
+        </a>
+
         <a href="{{ url('/admin/services') }}">
             <i class='bx bx-briefcase'></i>
             <span>Services</span>
@@ -51,7 +56,7 @@
             <span>Reviews</span>
         </a>
 
-        <a href="{{ url('/admin/settings') }}" class="active">
+        <a href="{{ url('/admin/settings') }}">
             <i class='bx bx-cog'></i>
             <span>Profile</span>
         </a>
@@ -66,6 +71,7 @@
 
     </div>
 
+
     <!-- Main Content -->
 
     <div class="main-content">
@@ -73,6 +79,12 @@
         <div class="admin-page">
 
             <h1>Manage Bookings</h1>
+
+            @if(session('success'))
+                <p style="color:green;">
+                    {{ session('success') }}
+                </p>
+            @endif
 
             <a href="{{ url('/admin') }}" class="back-btn">
                 ← Back to Dashboard
@@ -149,15 +161,38 @@
 
                         @if($booking->status=="Pending")
 
-                            <a href="{{ url('/booking/approve/'.$booking->id) }}"
-                               class="action-btn approve-btn">
-                                Approve
-                            </a>
+                        <form action="{{ route('booking.approve',$booking->id) }}" method="POST">
 
-                            <a href="{{ url('/booking/cancel/'.$booking->id) }}"
-                               class="action-btn cancel-btn">
-                                Cancel
-                            </a>
+                            @csrf
+
+                            <select name="provider_id" required>
+
+                                <option value="">Select Provider</option>
+
+                                @foreach($providers as $provider)
+
+                                    <option value="{{ $provider->id }}">
+                                        {{ $provider->name }}
+                                    </option>
+
+                                @endforeach
+
+                            </select>
+
+                            <br><br>
+
+                            <button type="submit" class="action-btn approve-btn">
+                                Approve
+                            </button>
+
+                        </form>
+
+                        <br>
+
+                        <a href="{{ url('/booking/cancel/'.$booking->id) }}"
+                           class="action-btn cancel-btn">
+                            Cancel
+                        </a>
 
                         @elseif($booking->status=="Approved")
 

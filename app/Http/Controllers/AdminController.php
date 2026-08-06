@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 use App\Models\Service;
@@ -35,10 +36,13 @@ class AdminController extends Controller
     }
 
     public function bookings()
-    {
-        $bookings = Booking::with(['user','service'])->get();
-        return view('admin.bookings', compact('bookings'));
-    }
+{
+    $bookings = Booking::with(['user','service'])->get();
+
+    $providers = User::where('role', 'provider')->get();
+
+    return view('admin.bookings', compact('bookings', 'providers'));
+}
 
     public function services()
     {
@@ -63,8 +67,11 @@ class AdminController extends Controller
 
         $service = new Service();
 
+
         $service->service_name = $request->service_name;
         $service->description = $request->description;
+        $service->about = $request->about;
+        $service->included_services = $request->included_services;
         $service->price = $request->price;
         $service->status = $request->status;
 
@@ -97,7 +104,9 @@ class AdminController extends Controller
 
         $service->service_name = $request->service_name;
         $service->description = $request->description;
-        $service->price = $request->price;
+        $service->about = $request->about;
+       $service->included_services = $request->included_services;
+       $service->price = $request->price;
         $service->status = $request->status;
 
         if($request->hasFile('image')){
@@ -149,7 +158,7 @@ public function updateProfile(Request $request)
         'email'=>'required|email',
     ]);
 
-    $user = Auth::user();
+    $user = User::find(Auth::id());
 
     $user->name = $request->name;
     $user->email = $request->email;
@@ -159,7 +168,6 @@ public function updateProfile(Request $request)
     return back()->with('success','Profile updated successfully!');
 }
 
-
 public function updatePassword(Request $request)
 {
     $request->validate([
@@ -167,19 +175,29 @@ public function updatePassword(Request $request)
         'new_password'=>'required|min:6|confirmed',
     ]);
 
-    $user = Auth::user();
+    $user = User::find(Auth::id());
+
 
     if(!Hash::check($request->current_password, $user->password))
     {
-        return back()->with('error','Current password is incorrect.');
+        return back()->with(
+            'error',
+            'Current password is incorrect.'
+        );
     }
+
 
     $user->password = Hash::make($request->new_password);
 
     $user->save();
 
-    return back()->with('success','Password updated successfully!');
+
+    return back()->with(
+        'success',
+        'Password updated successfully!'
+    );
 }
+
 public function changeServiceStatus($id)
 {
     $service = \App\Models\Service::findOrFail($id);
@@ -196,5 +214,38 @@ public function changeServiceStatus($id)
     $service->save();
 
     return redirect('/admin/services');
+}
+public function providers()
+{
+    $providers = User::where('role','provider')->get();
+
+    return view('admin.providers.index',
+    compact('providers'));
+}
+
+public function createProvider()
+{
+    return view('admin.providers.create');
+}
+
+public function storeProvider(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+        'email' => 'required|email|unique:users',
+        'phone' => 'required',
+        'password' => 'required|min:6',
+    ]);
+
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'password' => Hash::make($request->password),
+        'role' => 'provider',
+    ]);
+
+    return redirect()->route('admin.providers')
+        ->with('success', 'Provider added successfully.');
 }
 }

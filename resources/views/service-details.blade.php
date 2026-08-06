@@ -259,7 +259,7 @@ elseif($title == "Event Assistance"){
 
             <h2>About This Service</h2>
 
-            <p>{{ $about }}</p>
+            <p>{{ $service->about }}</p>
         </div>
 
         <div class="service-features">
@@ -267,14 +267,14 @@ elseif($title == "Event Assistance"){
             <h2>Services Included</h2>
             
             <ul>
-                @foreach($features as $feature)
-                <li>
-                    <i class='bx bx-check-circle'></i>
-                    {{ trim($feature) }}  
-                </li>
-   
-                @endforeach
-            </ul>
+    @foreach(explode("\n", $service->included_services) as $feature)
+
+        @if(trim($feature))
+            <li>{{ trim($feature) }}</li>
+        @endif
+
+    @endforeach
+</ul>
 
         </div>
 

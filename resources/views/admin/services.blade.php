@@ -34,6 +34,10 @@
             <i class='bx bx-user'></i>
             <span>Users</span>
         </a>
+        <a href="{{ url('/admin/providers') }}">
+    <i class='bx bx-user-plus'></i>
+    <span>Service Providers</span>
+      </a>
 
         <a href="{{ url('/admin/services') }}">
             <i class='bx bx-briefcase'></i>

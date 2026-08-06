@@ -18,20 +18,28 @@ class AuthController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
 
+        // Automatically detect provider account
+        if (str_ends_with($request->email, '@provider.com')) {
+            $role = 'provider';
+        } else {
+            $role = 'user';
+        }
+
         User::create([
+
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
-            'role' => 'user',
+            'role' => $role,
         ]);
 
-        return redirect('/login')->with('success', 'Registration successful!');
+        return redirect('/login')
+            ->with('success', 'Registration successful!');
     }
 
-
     public function login(Request $request)
-    {
+   {
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
@@ -39,35 +47,32 @@ class AuthController extends Controller
 
 
         if (Auth::attempt($credentials)) {
-
             $request->session()->regenerate();
-
             $user = Auth::user();
 
-
-            // Admin user goes to admin dashboard
+            // Admin
             if ($user->role == 'admin') {
                 return redirect('/admin');
             }
 
+            // Service Provider
+            if ($user->role == 'provider') {
+                return redirect('/provider');
+            }
 
-            // Normal user goes to user dashboard
+            // Normal User
             return redirect('/dashboard');
         }
 
-
-        return back()->with('error', 'Invalid email or password');
+        return back()
+            ->with('error', 'Invalid email or password');
     }
-
 
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/login');
     }
 }

@@ -8,12 +8,14 @@ class Service extends Model
 
 {
     protected $fillable = [
-        'service_name',
-        'description',
-        'price',
-        'image',
-        'status',
-    ];
+    'service_name',
+    'description',
+    'about',
+    'included_services',
+    'price',
+    'status',
+    'image',
+];
 
     public function bookings()
     {

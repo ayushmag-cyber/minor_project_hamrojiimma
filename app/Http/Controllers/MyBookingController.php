@@ -10,8 +10,9 @@ class MyBookingController extends Controller
     public function index()
     {
         $bookings = Booking::where('user_id', Auth::id())
-                            ->latest()
-                            ->get();
+            ->with('provider')
+            ->latest()
+            ->get();
 
         return view('my-bookings', compact('bookings'));
     }

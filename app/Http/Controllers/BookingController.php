@@ -9,69 +9,67 @@ use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
-
     // Show Booking Page
     public function create(Request $request)
-{
-    $services = Service::all();
+    {
+        $services = Service::all();
 
-    $selectedService = $request->service;
+        $selectedService = $request->service;
 
-    return view('booking', compact('services', 'selectedService'));
-}
+        return view('booking', compact('services', 'selectedService'));
+    }
+
 
     // Store Booking
     public function store(Request $request)
     {
         $request->validate([
-
             'service_id' => 'required',
             'payment_method' => 'required|string',
             'booking_date' => 'required|date|after_or_equal:today',
             'booking_time' => 'required',
             'address' => 'required|string',
-
         ]);
 
         $booking = Booking::create([
-
-    'user_id' => Auth::id(),
-    'service_id' => $request->service_id,
-    'booking_date' => $request->booking_date,
-    'booking_time' => $request->booking_time,
-    'address' => $request->address,
-    'payment_method' => $request->payment_method,
-    'status' => 'Pending',
-
-]);
-
-
-if($request->payment_method == "eSewa"){
-
-    return redirect()->route('payment', $booking->id);
-
-}
-
-
-return redirect('/my-bookings')
-    ->with('success','Booking submitted successfully!');
-    }
-
-    // Admin Approve Booking
-    public function approve($id)
-    {
-        $booking = Booking::findOrFail($id);
-
-        $booking->update([
-            'status'=>'Approved'
+            'user_id' => Auth::id(),
+            'service_id' => $request->service_id,
+            'booking_date' => $request->booking_date,
+            'booking_time' => $request->booking_time,
+            'address' => $request->address,
+            'payment_method' => $request->payment_method,
+            'status' => 'Pending',
         ]);
 
+        if($request->payment_method == "eSewa"){
+            return redirect()->route('payment', $booking->id);
+        }
 
-        return back()
-        ->with('success','Booking Approved!');
+        return redirect('/my-bookings')
+            ->with('success','Booking submitted successfully!');
     }
 
-    // Admin Complete Booking
+
+    // Provider/Admin Approve Booking
+    public function approve(Request $request, $id)
+    {
+        $request->validate([
+            'provider_id' => 'required|exists:users,id',
+        ]);
+
+        $booking = Booking::findOrFail($id);
+
+        $booking->provider_id = $request->provider_id;
+        $booking->status = "Approved";
+
+        $booking->save();
+
+        return back()
+            ->with('success','Booking approved and provider assigned!');
+    }
+
+
+    // Complete Booking
     public function complete($id)
     {
         $booking = Booking::findOrFail($id);
@@ -81,10 +79,11 @@ return redirect('/my-bookings')
         ]);
 
         return back()
-        ->with('success','Booking Completed!');
+            ->with('success','Booking Completed!');
     }
 
-    // Admin Cancel Booking
+
+    // Cancel Booking
     public function cancel($id)
     {
         $booking = Booking::findOrFail($id);
@@ -94,7 +93,6 @@ return redirect('/my-bookings')
         ]);
 
         return back()
-        ->with('success','Booking Cancelled!');
+            ->with('success','Booking Cancelled!');
     }
-
 }

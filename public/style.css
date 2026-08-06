@@ -2963,7 +2963,7 @@ body.dark .cancel-btn{
 }
 .payment-success h1 {
 
-    color: #09346f;
+    color: #0a3064;
     font-size: 40px;
 
 }
@@ -2980,5 +2980,215 @@ body.dark .cancel-btn{
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
+}
 
+/* Booking Card Compact Style */
+.service-card {
+    padding: 18px;
+    border-radius: 15px;
+}
+
+.service-top {
+    margin-bottom: 10px;
+}
+
+.service-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.service-icon i {
+    font-size: 24px;
+}
+
+.service-card h3 {
+    margin: 12px 0;
+    font-size: 20px;
+}
+
+.service-description {
+    margin-bottom: 12px;
+    min-height: auto;
+}
+
+.service-info {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.service-info p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.booking-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.booking-actions button {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+.provider-profile{
+
+    width:500px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+
+}
+
+.profile-image{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#e1be5d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-image i{
+    font-size:45px;
+}
+
+.role{
+    background:#1d3557;
+    color:white;
+    padding:6px 18px;
+    border-radius:20px;
+}
+
+.profile-details{
+    text-align:left;
+    margin-top:25px;
+}
+
+.profile-details p{
+    margin:15px 0;
+}
+
+.provider-stats{
+    display:flex;
+    justify-content:space-around;
+    margin:30px 0;
+}
+.provider-stats div{
+    background:#f7f7f7;
+    padding:15px;
+    border-radius:15px;
+}
+.provider-stats h3{
+    margin:0;
+    font-size:25px;
+}
+.profile-edit-card{
+    max-width:600px;
+    padding:30px;
+}
+
+.profile-edit-card label{
+    display:block;
+    margin-top:15px;
+    font-weight:600;
+}
+
+.profile-edit-card input{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+.profile-photo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-icon{
+    font-size:100px;
+}
+/*  Provider Form */
+
+.booking-form{
+    max-width:700px;
+    margin-top:25px;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.form-group label{
+    font-size:15px;
+    font-weight:600;
+    color:#333;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#0c3253;
+    box-shadow:0 0 6px rgba(13,110,253,.25);
+}
+.booking-form .card-btn{
+    display:inline-block;
+    padding:12px 24px;
+    margin-right:10px;
+    border:none;
+    border-radius:8px;
+    background:#0c3253;
+    color:#fff;
+    text-decoration:none;
+    cursor:pointer;
+    transition:.3s;
+}
+.booking-form .card-btn:hover{
+    background:#0c3253;
+}
+.user-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+}
+.user-table th{
+    background:#0c3253;
+    color:#fff;
+    padding:14px;
+    text-align:left;
+}
+.user-table td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+.user-table tr:hover{
+    background:#f8f9fa;
 }
