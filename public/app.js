@@ -60,7 +60,7 @@ document.querySelectorAll(".nav-link a").forEach(link => {
 const searchIcon = document.getElementById("search-icon");
 const searchBox = document.querySelector(".search-box");
 
-if(searchIcon && searchBox){
+if (searchIcon && searchBox) {
 
     searchIcon.onclick = () => {
         searchBox.classList.toggle("active");
@@ -69,19 +69,81 @@ if(searchIcon && searchBox){
 }
 
 
+// Live Service Search
+const searchInput = document.getElementById("serviceSearch");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const searchValue = this.value.toLowerCase();
+
+        const services = document.querySelectorAll(".service-grid .box");
+
+        const noResult = document.getElementById("noServiceFound");
+
+        let found = false;
+
+        services.forEach(function (service) {
+
+            const serviceName = service.querySelector("h2").textContent.toLowerCase();
+
+            if (serviceName.includes(searchValue)) {
+
+                service.style.display = "";
+                service.classList.add("highlight-service");
+                found = true;
+
+            } else {
+
+                service.style.display = "none";
+                service.classList.remove("highlight-service");
+
+            }
+
+        });
+
+        if (noResult) {
+
+            if (searchValue === "") {
+
+                noResult.style.display = "none";
+
+                services.forEach(function (service) {
+                    service.style.display = "";
+                    service.classList.remove("highlight-service");
+                });
+
+            } else if (found) {
+
+                noResult.style.display = "none";
+
+            } else {
+
+                noResult.style.display = "block";
+
+            }
+
+        }
+
+    });
+
+}
+
 // Close search outside click
 
-document.addEventListener("click", function(e){
+document.addEventListener("click", function (e) {
 
-    if(searchBox && searchIcon){
+    if (searchBox && searchIcon) {
 
-        if(!searchBox.contains(e.target) && !searchIcon.contains(e.target)){
+        if (!searchBox.contains(e.target) && !searchIcon.contains(e.target)) {
             searchBox.classList.remove("active");
         }
 
     }
 
 });
+
 
 
 // Contact form message

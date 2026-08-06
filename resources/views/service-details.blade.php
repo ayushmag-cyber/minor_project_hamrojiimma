@@ -185,8 +185,9 @@ elseif($title == "Event Assistance"){
             <i class='bx bx-search' id="search-icon"></i>
 
             <div class="search-box">
-                <input type="search" placeholder="Search services...">
-            </div>
+    
+                    <input type="search"id="serviceSearch"placeholder="Search services...">
+                </div>
 
         </div>
 

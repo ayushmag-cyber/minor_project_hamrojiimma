@@ -130,10 +130,12 @@ ul{
     outline: none;
     font-size: 1rem;
 }
-
-/* ==========================================
-   HEADER
-========================================== */
+.highlight-service{
+    box-shadow: 0 0 20px rgba(255,193,7,0.8);
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+/* HEADER */
 
 header{
     width: 100%;

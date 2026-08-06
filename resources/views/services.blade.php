@@ -101,8 +101,9 @@
             <i class='bx bx-search' id="search-icon"></i>
 
             <div class="search-box">
-                <input type="search" placeholder="Search services...">
-            </div>
+    
+                    <input type="search"id="serviceSearch"placeholder="Search services...">
+                </div>
 
         </div>
 
@@ -111,78 +112,53 @@
    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
 </nav>
 
-<!-- Services Section -->
+<<!-- Services Section -->
 
 <section class="services-page">
 
-<div class="services-right">
+    <div class="services-right">
 
-<h1>Our Services</h1>
+        <h1>Our Services</h1>
 
-<div class="line"></div>
+        <div class="line"></div>
 
+        <div class="service-grid">
 
-<div class="service-grid">
+            @foreach($services as $service)
 
+                <div class="box">
 
-@foreach($services as $service)
+                    <img src="{{ asset($service->image) }}"
+                         alt="{{ $service->service_name }}">
 
+                    <h2>{{ $service->service_name }}</h2>
 
-<div class="box">
+                    <p>
+                        {{ Str::limit($service->about, 100) }}
+                    </p>
 
+                    <div class="content">
 
-<img src="{{ asset($service->image) }}" 
-     alt="{{ $service->service_name }}">
+                        <span>{{ $service->status }}</span>
 
+                        <a href="{{ url('/service/'.$service->id) }}" class="btn">
+                            View More
+                        </a>
 
+                    </div>
 
-<h2>
-{{ $service->service_name }}
-</h2>
+                </div>
 
+            @endforeach
 
-
-<p>
-
-{{ Str::limit($service->about,100) }}
-
+        </div>
+        <p id="noServiceFound" style="display:none; text-align:center; font-size:20px; color:red; margin-top:20px;">
+    No services found.
 </p>
 
-<div class="content">
+    </div>
 
-
-<span>
-{{ $service->status }}
-</span>
-
-
-
-<a href="{{ url('/service/'.$service->id) }}" 
-class="btn">
-
-View More
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-@endforeach
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-    
+</section>  
 
     <!-- Footer -->
     <section class="footer" id="contact">

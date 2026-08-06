@@ -90,21 +90,7 @@
 @endauth
 </ul>
 
-    <div class="nav-icons">
-
-        <div class="header-icon">
-
-            <i class='bx bx-search' id="search-icon"></i>
-
-            <div class="search-box">
-                <input type="search" placeholder="Search services...">
-            </div>
-
-        </div>
-
-    </div>
-
-    <i class="bx bx-menu menu-btn" id="menu-btn"></i>
+      <i class="bx bx-menu menu-btn" id="menu-btn"></i>
 </nav>
 
 <!-- CART -->

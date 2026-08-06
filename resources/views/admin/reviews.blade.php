@@ -92,14 +92,14 @@
 
                 <tr>
                     <td>{{ $review->id }}</td>
+                    <td>
+                            @if($review->user && $review->user->profile_photo)
+                            <img src="{{ asset('profile_photos/' . $review->user->profile_photo) }}"class="review-img"alt="Profile">
+                            @else
+                            No Image   
+                        @endif
+                    </td>
    
-                    <td> 
-                        @if($review->image)
-                           <img src="{{ asset('reviews/'.$review->image) }}" class="review-img">
-                           @else
-                           No Image
-                           @endif
-                       </td>
                      <td>{{ $review->name }}</td>
                        <td>{{ $review->review }}</td>
 

@@ -92,20 +92,6 @@
 @endauth
 </ul>
 
-    <div class="nav-icons">
-
-        <div class="header-icon">
-
-            <i class='bx bx-search' id="search-icon"></i>
-
-            <div class="search-box">
-                <input type="search" placeholder="Search services...">
-            </div>
-
-        </div>
-
-    </div>
-
     <i class="bx bx-menu menu-btn" id="menu-btn"></i>
 </nav>
 
@@ -123,7 +109,7 @@
 
       <form action="{{ url('/contact') }}" method="POST">
     @csrf
-    
+
         <div class="input-box">
     <span class="icon">
         <i class='bx bx-envelope'></i>
