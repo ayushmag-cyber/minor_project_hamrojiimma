@@ -76,18 +76,13 @@
     </p>
 
     @endif
-
-
     <a href="{{ route('admin.services.create') }}">
-        + Add New Service
-    </a>
-
+    + Add New Service
+</a>
 
     <h1>Manage Services</h1>
 
-
     <table class="user-table">
-
         <thead>
 
             <tr>
@@ -147,20 +142,12 @@
                     </a>
 
                     <a href="{{ route('admin.services.status',$service->id) }}">
-                        Change Status
+                        @if($service->status == "Available")
+                        Hide
+                        @else
+                        Unhide
+                        @endif
                     </a>
-
-                    <form action="{{ route('admin.services.delete',$service->id) }}"
-                          method="POST"
-                          style="display:inline;">
-
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit">
-                            Delete
-                        </button>
-                    </form>
 
                 </td>
             </tr>

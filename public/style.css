@@ -2487,7 +2487,6 @@ body.dark-mode .user-table tbody tr:hover{
     border:2px solid #ddd;
 }
 
-
 /* Add Service Button */
 
 .main-content > a{
@@ -2507,7 +2506,6 @@ body.dark-mode .user-table tbody tr:hover{
     background:#b8860b;
 }
 
-
 /* Service Table */
 
 .user-table{
@@ -2519,7 +2517,6 @@ body.dark-mode .user-table tbody tr:hover{
     box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-
 .user-table th{
     background:#222;
     color:white;
@@ -2527,7 +2524,6 @@ body.dark-mode .user-table tbody tr:hover{
     text-align:left;
     font-size:14px;
 }
-
 
 .user-table td{
     padding:14px;
@@ -2541,85 +2537,65 @@ body.dark-mode .user-table tbody tr:hover{
     background:#fafafa;
 }
 
-
-
 /* Status */
-
 .status-available,
 .status-unavailable{
-
-    padding:6px 14px;
+   padding:6px 14px;
     border-radius:20px;
     font-size:13px;
     font-weight:600;
-    color:white;
-
+   color:white;
 }
-
 
 .status-available{
     background:#28a745;
 }
 
-
 .status-unavailable{
     background:#dc3545;
 }
 
-
-
 /* Action Buttons */
-
 .user-table td a{
-
     display:inline-block;
-    background:#333;
     color:white;
-    padding:7px 12px;
-    border-radius:6px;
+    padding:8px 14px;
+    border-radius:7px;
     text-decoration:none;
     font-size:13px;
+    font-weight:600;
     margin:3px;
     transition:0.3s;
-
 }
 
-
-.user-table td a:hover{
-
-    background:#d4a017;
-
+/* Edit */
+.user-table td a:first-child{
+    background:#08396e;
+}
+.user-table td a:first-child:hover{
+    background:#0056b3;
 }
 
-
-
-/* Delete Button */
-
-.user-table button{
-
+/* Hide / Unhide */
+.user-table td a:nth-child(2){
     background:#dc3545;
-    color:white;
-    border:none;
-    padding:7px 12px;
-    border-radius:6px;
-    cursor:pointer;
-    font-size:13px;
 }
-.user-table button:hover{
-   background:#b02a37;
+.user-table td a:nth-child(2):hover{
+    background:#b02a37;
 }
 
 /* Dark Mode */
 body.dark .service-img{
     border:2px solid #555;
 }
+
 body.dark .user-table{
     background:#1e1e1e;
 }
+
 body.dark .user-table th{
     background:#111;
 }
-
 body.dark .user-table td{
     color:#f5f5f5;
     border-bottom:1px solid #444;
@@ -2629,6 +2605,98 @@ body.dark .user-table tr:hover{
 }
 body.dark .main-content h1{
     color:#fff;
+}
+/* Add / Edit Service Form */
+
+.service-form-container{
+    max-width:700px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.service-form-container h1{
+    margin-bottom:25px;
+    text-align:center;
+    color:#333;
+}
+
+.service-form-container label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#444;
+}
+
+.service-form-container input,
+.service-form-container textarea,
+.service-form-container select{
+    width:100%;
+    padding:12px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:14px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+.service-form-container textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+.service-form-container input:focus,
+.service-form-container textarea:focus,
+.service-form-container select:focus{
+    border-color:#d4a017;
+}
+
+.service-form-container input[type=file]{
+    padding:8px;
+    border:none;
+}
+
+.service-form-container button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#08436a;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.service-form-container button:hover{
+    background:#193876;
+}
+
+.service-form-container img{
+    width:150px;
+    border-radius:10px;
+    margin:10px 0 20px;
+}
+
+body.dark .service-form-container{
+    background:#1e1e1e;
+}
+
+body.dark .service-form-container h1,
+body.dark .service-form-container label{
+    color:#fff;
+}
+
+body.dark .service-form-container input,
+body.dark .service-form-container textarea,
+body.dark .service-form-container select{
+    background:#2b2b2b;
+    color:#fff;
+    border:1px solid #555;
 }
 
 /* ===== ADMIN REVIEWS ===== */
