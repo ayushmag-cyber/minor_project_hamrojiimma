@@ -123,23 +123,34 @@
 
       <form action="{{ url('/contact') }}" method="POST">
     @csrf
+    
         <div class="input-box">
+    <span class="icon">
+        <i class='bx bx-envelope'></i>
+    </span>
 
-          <span class="icon">
-            <i class='bx bx-envelope'></i>
-          </span>
+    <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        value="{{ Auth::check() ? Auth::user()->email : old('email') }}"
+        {{ Auth::check() ? 'readonly' : '' }}
+        required>
+</div>
 
-          <input type="email" name="email" placeholder="Enter your email" required>
-        </div>
+<div class="input-box">
+    <span class="icon">
+        <i class='bx bx-user'></i>
+    </span>
 
-        <div class="input-box">
-
-          <span class="icon">
-            <i class='bx bx-user'></i>
-          </span>
-
-          <input type="text" name="name" id="name" placeholder="Enter your name" required>
-        </div>
+    <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        value="{{ Auth::check() ? Auth::user()->name : old('name') }}"
+        {{ Auth::check() ? 'readonly' : '' }}
+        required>
+</div>
 
         <div class="input-box">
 
