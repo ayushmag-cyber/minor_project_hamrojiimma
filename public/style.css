@@ -2668,3 +2668,132 @@ body.dark .complete-btn{
 body.dark .cancel-btn{
     background:#b91c1c;
 }
+/* eSewa Payment Page */
+
+
+.payment-container {
+
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+}
+.esewa-card {
+
+    width: 400px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+}
+.esewa-card img {
+
+    margin-bottom: 15px;
+
+}
+.esewa-card h2 {
+
+    color: #1c8b3c;
+    font-size: 30px;
+    margin-bottom: 10px;
+
+}
+
+.esewa-card p {
+
+    color: #555;
+    margin-bottom: 20px;
+
+}
+.amount-box {
+
+    background: #f1f8f3;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+
+}
+.amount-box h3 {
+
+    color: #1c8b3c;
+    margin: 0;
+
+}
+.esewa-card form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+.esewa-card label {
+
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+
+}
+.esewa-card input {
+
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+
+}
+.esewa-card input:focus {
+
+    outline: none;
+    border-color: #1c8b3c;
+
+}
+.esewa-card .book-service-btn {
+
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 25px;
+    background: #1c8b3c;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+
+}
+.esewa-card .book-service-btn:hover {
+
+    background: #146b2d;
+}
+/* Payment Success Page */
+.payment-success {
+
+    text-align: center;
+    margin-top: 120px;
+
+}
+.payment-success h1 {
+
+    color: #09346f;
+    font-size: 40px;
+
+}
+.payment-success p {
+
+    font-size: 18px;
+    margin: 20px;
+
+}
+.payment-success a {
+
+    background: #1c8b3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+
+}

@@ -25,9 +25,7 @@ if($title == "Elder Care"){
     ];
     $rating = "4.8";
 }
-
-
-elseif($title == "Child Care"){
+elseif($title == "Childcare"){
     $about = "Our Child Care service provides a safe, caring, and supportive environment for children. We understand that every child needs attention, patience, and proper care. Our caregivers help children with their daily routines while supporting their growth, learning, and overall well-being.";
     $features = [
         "Diaper Changing & Personal Hygiene",

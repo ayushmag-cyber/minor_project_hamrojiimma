@@ -160,3 +160,17 @@ Route::post('/logout', function () {
 /* Contact */
 
 Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/payment/{booking}', function($booking){
+
+    $booking = \App\Models\Booking::with('service')->findOrFail($booking);
+
+    return view('payment', compact('booking'));
+
+})->name('payment');
+
+
+Route::get('/payment-success', function(){
+
+    return view('payment-success');
+
+})->name('payment.success');

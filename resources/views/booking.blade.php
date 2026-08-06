@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>HamroJiimma - About Us</title>
 
     <link rel="stylesheet" href="style.css">
 <script src="app.js" defer></script>
@@ -147,14 +146,25 @@
             
             <div class="input-box">
     
-                <label>Payment Method</label>
-                    <select name="payment_method" required>
-                    <option value="">Choose Payment Method</option>
-                    <option value="Cash on Service">Cash on Service</option>
-                    <option value="eSewa">eSewa</option>   
-                    <option value="Khalti">Khalti</option>
-   
-                </select>
+                <label>
+    Payment Method
+</label>
+
+<select name="payment_method" required>
+
+    <option value="">
+        Select Payment Method
+    </option>
+
+    <option value="Cash on Delivery">
+        Cash on Delivery
+    </option>
+
+    <option value="eSewa">
+        eSewa
+    </option>
+
+</select>
             </div>
 
             <div class="input-row">

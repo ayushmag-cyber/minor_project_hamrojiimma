@@ -33,18 +33,28 @@ class BookingController extends Controller
 
         ]);
 
-        Booking::create([
-            'user_id' => Auth::id(),
-            'service_id' => $request->service_id,
-            'booking_date' => $request->booking_date,
-            'booking_time' => $request->booking_time,
-            'address' => $request->address,
-            'payment_method' => $request->payment_method,
-            'status' => 'Pending',
-        ]);
+        $booking = Booking::create([
 
-        return redirect('/my-bookings')
-                ->with('success','Booking submitted successfully!');
+    'user_id' => Auth::id(),
+    'service_id' => $request->service_id,
+    'booking_date' => $request->booking_date,
+    'booking_time' => $request->booking_time,
+    'address' => $request->address,
+    'payment_method' => $request->payment_method,
+    'status' => 'Pending',
+
+]);
+
+
+if($request->payment_method == "eSewa"){
+
+    return redirect()->route('payment', $booking->id);
+
+}
+
+
+return redirect('/my-bookings')
+    ->with('success','Booking submitted successfully!');
     }
 
     // Admin Approve Booking
