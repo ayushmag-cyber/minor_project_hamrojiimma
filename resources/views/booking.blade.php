@@ -156,9 +156,7 @@
         Select Payment Method
     </option>
 
-    <option value="Cash on Delivery">
-        Cash on Delivery
-    </option>
+    <option value="Cash on Service">Cash on Service</option>
 
     <option value="eSewa">
         eSewa

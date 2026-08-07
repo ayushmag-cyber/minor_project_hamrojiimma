@@ -158,7 +158,7 @@
 
                 <div class="content">
                     <span>Safe & Reliable</span>
-                   <a href="{{ url('/service/2') }}" class="btn">View More</a>
+                   <a href="{{ url('/service/6') }}" class="btn">View More</a>
                 </div>
 
             </div>

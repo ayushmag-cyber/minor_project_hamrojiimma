@@ -30,10 +30,11 @@ class AdminController extends Controller
     }
 
     public function users()
-    {
-        $users = User::all();
-        return view('admin.users', compact('users'));
-    }
+{
+    $users = User::where('role', 'user')->get();
+
+    return view('admin.users', compact('users'));
+}
 
     public function bookings()
 {
@@ -217,10 +218,9 @@ public function changeServiceStatus($id)
 }
 public function providers()
 {
-    $providers = User::where('role','provider')->get();
+    $providers = User::where('role', 'provider')->get();
 
-    return view('admin.providers.index',
-    compact('providers'));
+    return view('admin.providers', compact('providers'));
 }
 
 public function createProvider()

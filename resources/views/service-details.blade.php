@@ -26,7 +26,7 @@ if($title == "Elder Care"){
     $rating = "4.8";
 }
 elseif($title == "Childcare"){
-    $about = "Our Child Care service provides a safe, caring, and supportive environment for children. We understand that every child needs attention, patience, and proper care. Our caregivers help children with their daily routines while supporting their growth, learning, and overall well-being.";
+        $about = "Our Child Care service provides a safe, caring, and supportive environment for children. We understand that every child needs attention, patience, and proper care. Our caregivers help children with their daily routines while supporting their growth, learning, and overall well-being.";
     $features = [
         "Diaper Changing & Personal Hygiene",
         "Feeding and Meal Assistance",
@@ -259,7 +259,7 @@ elseif($title == "Event Assistance"){
 
             <h2>About This Service</h2>
 
-            <p>{{ $service->about }}</p>
+            <p>{{ $about }}</p>
         </div>
 
         <div class="service-features">
@@ -267,14 +267,12 @@ elseif($title == "Event Assistance"){
             <h2>Services Included</h2>
             
             <ul>
-    @foreach(explode("\n", $service->included_services) as $feature)
 
-        @if(trim($feature))
-            <li>{{ trim($feature) }}</li>
-        @endif
-
-    @endforeach
+@foreach($features as $feature)
+    <li>{{ $feature }}</li>
+@endforeach
 </ul>
+
 
         </div>
 
